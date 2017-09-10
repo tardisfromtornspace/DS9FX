@@ -1,0 +1,25 @@
+import App
+import Foundation
+
+abbrev = "DS9FXPeragrine"
+iconName = "DS9FXPeragrine"
+longName = "Peregrine Fighter"
+shipFile = "DS9FXPeragrine"
+species = App.SPECIES_GALAXY
+menuGroup = "DS9FX Ships"
+playerMenuGroup = "DS9FX Ships"
+
+Foundation.ShipDef.DS9FXPeragrine = Foundation.FedShipDef(abbrev, species, { 'name': longName, 'iconName': iconName, 'shipFile': shipFile })
+Foundation.ShipDef.DS9FXPeragrine.SubMenu = "Federation Ships"
+Foundation.ShipDef.DS9FXPeragrine.fMaxWarp = 7.2 + 0.0001
+Foundation.ShipDef.DS9FXPeragrine.fCruiseWarp = 5.6 + 0.0001
+Foundation.ShipDef.DS9FXPeragrine.fCrew = 2
+
+Foundation.ShipDef.DS9FXPeragrine.desc = "------- DESCRIPTION -------\nThe Peregrine class is a type of shuttlecraft, originally employed as a courier by the Federation. The Maquis appropriated several Peregrine class ships and used them as attack fighters by during their insurrection against the Cardassians. Starfleet used them during the Dominion War. It is commonly used in the first assault wave to soften the enemy defenses before the capital ships moved in.\n\n------- TACTICS -------\nMaximise the ships impulse engines and deliver fast attacks as a squadron in order to increase successful attacks. Reduce power to phasers in order to increase the amount of pulse fire available when engaging larger ships and increase phaser power when engaging faster vessels. When attacking the Peregrine class, disable its engines as a top priority.\n\n------- SHIP STATS -------\n\nHull Rating: 5550\n\nShield Rating:\n     Fore - 4000 @ 5chg\n     Aft - 4000 @ 5chg\n     Dorsal - 4000 @ 5chg\n     Ventral - 4000 @ 5chg\n     Port - 4000 @ 5chg\n     Starboard - 4000 @ 5chg\n\nImpulse Engines:\n     Max Speed - 9.5\n     Max Accel - 4\n     Max Ang Velocity - 1 \n     Max Ang Accel - 1\n\nWarp Engines:\n     Max Warp - 7.2\n     Max Cruise Warp - 5.6\n\nCrew Complement: 2\n\n------- SHIP WEAPONS -------\n\nPhasers:\n   1xP 1xS\n     Max Chg - 0.75\n     Max Dmg - 500\n     Min Firing Chg - 0.75\n     Rechg Rate - 1\n     Max Damage Distance - 100\n\nPulse Phasers:\n   2xF\n     Max Chg - 6\n     Max Dmg - 150\n     Min Firing Chg - 5.5 \n     Rechg Rate - 0.6\n     Cooldown Time - 0.2\n\nTorpedoes:\n   2xF\n     Photon Type 6 - 20\n     Reload Delay - 15 \n\n------- SYSTEMS STATS -------\n\nHull:\n     Max Condition - 5550\n     Repair Complexity - 2\n     Disabled Percentage - 0\n\nLife Support System:\n     Max Condition - 5000\n     Repair Complexity - 1\n     Disabled Percentage - 0.1\n\nPhaser Arrays:\n     Max Condition - 1300\n     Repair Complexity - 1 \n     Disabled Percentage - 0.45  \n\nPhaser System:\n     Max Condition - 1300\n     Repair Complexity - 1 \n     Disabled Percentage - 0.5  \n     Normal Power/Sec - 50\n\nPulse Phaser Emitters:\n     Max Condition - 750\n     Repair Complexity - 9\n     Disabled Percentage - 0.75\n\nPulse Phaser System:\n     Max Condition - 600\n     Repair Complexity - 9\n     Disabled Percentage - 0.75 \n     Normal Power/Sec - 80 \n\nRepair System:\n     Max Condition - 400\n     Repair Complexity - 4 \n     Disabled Percentage - 0.1 \n     Maximum Repair Points - 2\n     Repair Teams - 2\n\nSensor Array:\n     Max Condition - 2500\n     Repair Complexity - 1\n     Disabled Percentage - 0.5 \n     Normal Power/Sec - 50\n     Max # of Probes - 10\n     Sensor Base Range - 1650\n\nShield Generator:\n     Max Condition - 8000\n     Repair Complexity - 2\n     Disabled Percentage - 0.75 \n     Normal Power/Sec - 50\n\nTorpedo Bays:\n   1xF\n     Max Condition - 900\n     Repair Complexity - 3\n     Disabled Percentage - 0.75\n\nTorpedo System:\n     Max Condition - 900\n     Repair Complexity - 3 \n     Disabled Percentage - 0.75 \n     Normal Power/Sec - 50\n\nWarp Core:\n     Max Condition - 2000\n     Repair Complexity - 2\n     Disabled Percentage - 0.5\n     Power Output/Sec - 500\n     Main Battery Limit - 40000\n     Backup Battery Limit - 25000\n     Main Conduit Capacity - 520\n     Backup Battery Capacity - 125\n\n------- ENGINE PROPERTIES -------\n\nImpulse Engines:\n     Max Condition - 4000\n     Repair Complexity - 4\n     Disabled Percentage - 0.5\n     Normal Power/Sec - 50\n\n   Main Impulse:\n     Max Condition - 1200\n     Repair Complexity - 4\n     Disabled Percentage - 0.5 \n\nWarp Engines:\n     Max Condition - 4100\n     Repair Complexity - 3\n     Disabled Percentage - 0.75 \n\n   Port Warp:\n     Max Condition - 1400\n     Repair Complexity - 3\n     Disabled Percentage - 0.75 \n\n   Star Warp:\n     Max Condition - 1400\n     Repair Complexity - 3\n     Disabled Percentage - 0.75"
+
+if menuGroup:           Foundation.ShipDef.DS9FXPeragrine.RegisterQBShipMenu(menuGroup)
+if playerMenuGroup:     Foundation.ShipDef.DS9FXPeragrine.RegisterQBPlayerShipMenu(playerMenuGroup)
+
+if Foundation.shipList._keyList.has_key(longName):
+      Foundation.ShipDef.__dict__[longName].friendlyDetails[2] = Foundation.shipList[longName].friendlyDetails[2]
+      Foundation.ShipDef.__dict__[longName].enemyDetails[2] = Foundation.shipList[longName].enemyDetails[2]

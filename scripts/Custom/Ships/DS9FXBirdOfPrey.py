@@ -1,0 +1,26 @@
+import App
+import Foundation
+
+
+abbrev = "DS9FXBirdOfPrey"
+iconName = "DS9FXBirdOfPrey"
+longName = "Bird Of Prey"
+shipFile = "DS9FXBirdOfPrey"
+species = App.SPECIES_GALAXY
+menuGroup = "DS9FX Ships"
+playerMenuGroup = "DS9FX Ships"
+
+Foundation.ShipDef.DS9FXBirdOfPrey = Foundation.KlingonShipDef(abbrev, species, { 'name': longName, 'iconName': iconName, 'shipFile': shipFile })
+Foundation.ShipDef.DS9FXBirdOfPrey.SubMenu = "Klingon Ships"
+Foundation.ShipDef.DS9FXBirdOfPrey.fMaxWarp = 9 + 0.0001
+Foundation.ShipDef.DS9FXBirdOfPrey.fCruiseWarp = 8.2 + 0.0001
+Foundation.ShipDef.DS9FXBirdOfPrey.fCrew = 12
+
+Foundation.ShipDef.DS9FXBirdOfPrey.desc = "------- DESCRIPTION -------\nThe Klingon B\'Rel-class \'Frigate\', also known simply as the \'Bird of Prey\', has been in service in the Klingon Empire for over 80 years. It was a common vessel in service during the 22nd century. The ship was equipped with disruptors cannons mounted on the wings and under the primary hull. The class has undergone several upgrades and refits, but is still used as the backbone of the Klingon fleet. The ship is highly maneuverable, requires a minimal crew to run at maximum combat effectiveness, and carries very impressive firepower for its small size. The B\'Rel is capable of atmospheric flight and planetary landings as well, making it a very effective scout ship. The hull design and general layout were also used to create the heavier K\'Vort-class \'Destroyer.\'\n\n------- TACTICS -------\nMake use of this ship\'s cloaking device for hit and run attacks, and never retreat with this ship; Always attack! When battling this ship, try to take out its impulse engines and cloaking device, as this will severely disable the Bird of Prey\'s combat effectiveness.\n\n------- SHIP STATS -------\n\nHull Rating: 7500\n\nShield Rating:\n     Fore - 7500 @ 15chg\n     Aft - 7500 @ 15chg\n     Dorsal - 7500 @ 15chg\n     Ventral - 7500 @ 15chg\n     Port - 7500 @ 15chg\n     Starboard - 7500 @ 15chg\n\nImpulse Engines:\n     Max Speed - 10.5\n     Max Accel - 7.25\n     Max Ang Velocity - 1.9\n     Max Ang Accel - 1.2\n\nWarp Engines:\n     Max Warp - 9\n     Max Cruise Warp - 8.2\n\nCrew Complement: 12\n\n------- SHIP WEAPONS -------\n\nDisruptor Cannons:\n   2xF\n     Max Chg - 8\n     Max Dmg - 300\n     Min Firing Chg - 3\n     Rechg Rate - 0.8\n     Cooldown Time - 0.05\n\nTorpedoes: \n   2xF\n     Klingon Adv Photon - 100\n     Reload Delay - 20\n\n------- SHIP PROPERTIES -------\n\nCloaking System:\n     Max Condition - 4000\n     Repair Complexity - 2\n     Disabled Percentage - 0.25\n     Normal Power/Sec - 380\n\nDisruptor Cannons:\n     Max Condition - 4000\n     Repair Complexity - 2\n     Disabled Percentage - 0.25\n\nDisruptor Cannon System:\n     Max Condition - 4000\n     Repair Complexity - 2\n     Disabled Percentage - 0.25\n     Normal Power/Sec - 80\n\nHull:\n     Max Condition - 7500\n     Repair Complexity - 1\n     Disabled Percentage - 0 \n\nLife Support System:\n     Max Condition - 6500\n     Repair Complexity - 1\n     Disabled Percentage - 0.1\n\nRepair System:\n     Max Condition - 2000\n     Repair Complexity - 2\n     Disabled Percentage - 0.1\n     Maximum Repair Points - 40\n     Repair Teams - 2\n\nSensor Array:\n     Max Condition - 12000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25\n     Normal Power/Sec - 50\n     Max # of Probes - 10\n     Sensor Base Range - 2000\n\nShield Generator:\n     Max Condition - 10000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25\n     Normal Power/Sec - 180\n\nTorpedo Bays:\n   1xF\n     Max Condition - 6000\n     Repair Complexity -  1\n     Disabled Percentage - 0.25\n\nTorpedo System:\n     Max Condition - 6000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25 \n     Normal Power/Sec - 50\n\nTractor Beam Emitters:\n   1xFD 1xFV 1xAD 1xAV\n     Max Condition - 2000\n     Repair Complexity - 1\n     Disabled Percentage - 0.5\n\nTractor Beam Systems:\n     Max Condition - 800\n     Repair Complexity - 1\n     Disabled Percentage - 0.25\n\nWarp Core:\n     Max Condition - 7000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25\n     Power Output/Sec - 500\n     Main Battery Limit - 80000\n     Backup Battery Limit - 40000\n     Main Conduit Capacity - 490\n     Backup Battery Capacity - 95\n\n------- ENGINE PROPERTIES -------\n\nImpulse Engine:\n     Max Condition - 7000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25\n\nWarp Engines:\n     Max Condition - 8000\n     Repair Complexity - 2\n     Disabled Percentage - 0.25\n\n   Port Warp:\n     Max Condition - 5500\n     Repair Complexity - 2\n     Disabled Percentage - 0.25\n\n   Star Warp:\n     Max Condition - 5500\n     Repair Complexity - 2\n     Disabled Percentage - 0.25"
+
+if menuGroup:           Foundation.ShipDef.DS9FXBirdOfPrey.RegisterQBShipMenu(menuGroup)
+if playerMenuGroup:     Foundation.ShipDef.DS9FXBirdOfPrey.RegisterQBPlayerShipMenu(playerMenuGroup)
+
+if Foundation.shipList._keyList.has_key(longName):
+      Foundation.ShipDef.__dict__[longName].friendlyDetails[2] = Foundation.shipList[longName].friendlyDetails[2]
+      Foundation.ShipDef.__dict__[longName].enemyDetails[2] = Foundation.shipList[longName].enemyDetails[2]

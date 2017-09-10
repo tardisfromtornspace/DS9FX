@@ -1,0 +1,25 @@
+import App
+import Foundation
+
+abbrev = "DS9FXHideki"
+iconName = "DS9FXHideki"
+longName = "Hideki"
+shipFile = "DS9FXHideki"
+species = App.SPECIES_GALAXY
+menuGroup = "DS9FX Ships"
+playerMenuGroup = "DS9FX Ships"
+
+Foundation.ShipDef.DS9FXHideki = Foundation.CardShipDef(abbrev, species, { 'name': longName, 'iconName': iconName, 'shipFile': shipFile })
+Foundation.ShipDef.DS9FXHideki.SubMenu = "Cardassian Ships"
+Foundation.ShipDef.DS9FXHideki.fMaxWarp = 9.5 + 0.0001
+Foundation.ShipDef.DS9FXHideki.fCruiseWarp = 8.9 + 0.0001
+Foundation.ShipDef.DS9FXHideki.fCrew = 30
+
+Foundation.ShipDef.DS9FXHideki.desc = "------- DESCRIPTION -------\nThe Cardassian Hideki class is a small patrol/fighter class vessel. It is the Cardassian`s equivalent to the Jem`Hadar Attack ship.  These ships do not have significant firepower or defensive systems, but are usually found in large numbers as fire support for battle fleets, hit and run attacks, and can be useful to hunt down and destroy small fighter craft. These ships have also operated independently in the Demilitarized Zone to combat Maquis forces.\n\n------- TACTICS -------\nThe Hideki is a fast, versatile attack ship, mostly used in reconnaissance or hit and run missions. Try to make full use of its small length and high maneuverability, and always be in packs of 3 or more, for optimal battle efficiency.\n\n------- SHIP STATS -------\n\nHull Rating: 3000\n\nShield Rating:\n     Fore - 3000 @ 3chg\n     Aft - 3000 @ 3chg\n     Dorsal - 3000 @ 3chg\n     Ventral - 3000 @ 3chg\n     Port - 3000 @ 3chg\n     Starboard - 3000 @ 3chg\n\nImpulse Engines:\n     Max Speed - 8\n     Max Accel - 4\n     Max Ang Velocity - 1 \n     Max Ang Accel - 1\n\nWarp Engines:\n     Max Warp - 9.5\n     Max Cruise Warp - 8.9\n\nCrew Complement: 30\n\n------- SHIP WEAPONS -------\n\nCompressor Beams: (single fire)\n   1xF 1xD 1xP 1xS\n     Max Chg - 1\n     Max Dmg - 350\n     Min Firing Chg - 1 \n     Rechg Rate - 1\n     Max Damage Distance - 50\n\nTorpedoes:\n   2xF\n     Cardassian Adv Photon - 60\n     Reload Delay - 30\n\n------- SHIP PROPERTIES -------\n\nCompressor Beam Emitters:\n     Max Condition - 1600\n     Repair Complexity - 1\n     Disabled Percentage - 0.25\n\nCompressor Beam System:\n     Max Condition - 900\n     Repair Complexity - 1  \n     Disabled Percentage - 0.25 \n     Normal Power/Sec - 150\n\nHull:\n     Max Condition - 3000\n     Repair Complexity - 1\n     Disabled Percentage - 0\n\nLife Support System:\n     Max Condition - 7000\n     Repair Complexity - 1\n     Disabled Percentage - 0.1\n\nRepair System:\n     Max Condition - 1000\n     Repair Complexity - 1\n     Disabled Percentage - 0.1 \n     Maximum Repair Points - 10\n     Repair Teams - 1\n\nSensor Array:\n     Max Condition - 1500\n     Repair Complexity - 1\n     Disabled Percentage - 0.25 \n     Normal Power/Sec - 50\n     Max # of Probes - 10\n     Sensor Base Range - 1000\n\nShield Generator:\n     Max Condition - 6000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25 \n     Normal Power/Sec - 200\n\nTorpedo Bays:\n   1xF\n     Max Condition - 1000\n     Repair Complexity - 1 \n     Disabled Percentage - 0.25  \n\nTorpedo System:\n     Max Condition - 1000\n     Repair Complexity - 1 \n     Disabled Percentage - 0.25 \n     Normal Power/Sec - 50\n\nTractor Beam Emitters:\n   1xF 1xA\n     Max Condition - 200\n     Repair Complexity - 1 \n     Disabled Percentage - 0.5 \n\nTractor Beam System:\n     Max Condition - 700\n     Repair Complexity - 5 \n     Disabled Percentage - 0.25\n     Normal Power/Sec - 1\n\nWarp Core:\n     Max Condition - 3000\n     Repair Complexity - 1\n     Disabled Percentage - 0.25 \n     Power Output/Sec - 800\n     Main Battery Limit - 120000\n     Backup Battery Limit - 50000\n     Main Conduit Capacity - 750\n     Backup Battery Capacity - 150\n\n------- ENGINE PROPERTIES -------\n\nImpulse Engines:\n     Max Condition - 1500\n     Repair Complexity - 2\n     Disabled Percentage - 0.25 \n     Normal Power/Sec - 50\n\n   Port Impulse:\n     Max Condition - 2500\n     Repair Complexity - 2\n     Disabled Percentage -  0.25\n\n   Star Impulse:\n     Max Condition - 2500\n     Repair Complexity - 2  \n     Disabled Percentage - 0.25\n\nWarp Engines:\n     Max Condition - 3000\n     Repair Complexity - 3\n     Disabled Percentage - 0.25\n\n   Port Warp:\n     Max Condition - 2000\n     Repair Complexity - 3\n     Disabled Percentage - 0.25\n\n   Star Warp:\n     Max Condition - 2000\n     Repair Complexity - 3\n     Disabled Percentage - 0.25"
+
+if menuGroup:           Foundation.ShipDef.DS9FXHideki.RegisterQBShipMenu(menuGroup)
+if playerMenuGroup:     Foundation.ShipDef.DS9FXHideki.RegisterQBPlayerShipMenu(playerMenuGroup)
+
+if Foundation.shipList._keyList.has_key(longName):
+      Foundation.ShipDef.__dict__[longName].friendlyDetails[2] = Foundation.shipList[longName].friendlyDetails[2]
+      Foundation.ShipDef.__dict__[longName].enemyDetails[2] = Foundation.shipList[longName].enemyDetails[2]
