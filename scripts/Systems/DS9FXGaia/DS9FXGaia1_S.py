@@ -25,24 +25,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Gaia I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/HighRes/Planet004.nif")
                     pSet.AddObjectToSet(pPlanet2, "Gaia II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(250.0, "data/Models/Environment/DS9FX/HighRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet3, "Gaia III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/HighRes/GaiaIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Gaia IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GaiaNanoFX == 1:
@@ -61,24 +65,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Gaia I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/StandardRes/Planet004.nif")
                     pSet.AddObjectToSet(pPlanet2, "Gaia II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(250.0, "data/Models/Environment/DS9FX/StandardRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet3, "Gaia III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/StandardRes/GaiaIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Gaia IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GaiaNanoFX == 1:
@@ -97,24 +105,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Gaia I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/LowRes/Planet004.nif")
                     pSet.AddObjectToSet(pPlanet2, "Gaia II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(250.0, "data/Models/Environment/DS9FX/LowRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet3, "Gaia III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowRes/GaiaIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Gaia IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GaiaNanoFX == 1:
@@ -133,24 +145,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Gaia I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/LowestRes/Planet004.nif")
                     pSet.AddObjectToSet(pPlanet2, "Gaia II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(250.0, "data/Models/Environment/DS9FX/LowestRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet3, "Gaia III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowestRes/GaiaIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Gaia IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GaiaNanoFX == 1:

@@ -16,7 +16,7 @@ def Initialize(pSet):
     pSun.PlaceObjectByName( "Sun" )
     pSun.UpdateNodeOnly()
 
-    Tactical.LensFlares.RedOrangeLensFlare(pSet, pSun, 1, 0.65, 0.65)
+    Tactical.LensFlares.RedOrangeLensFlare(pSet, pSun, 1, 0.5, 0.5)
     SunStreak.Create(pSet, "SunStr", 150000.0, "RedOrange", "4")    
     
     reload(DS9FXSavedConfig)
@@ -26,36 +26,42 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet1, "Qo'nos 1")
 
                     pPlanet1.PlaceObjectByName("Planet1")
+	    	    pPlanet1.SetAtmosphereRadius(0.01)
                     pPlanet1.UpdateNodeOnly()  
                     
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/HighRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet2, "Qo'nos 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()  
                     
                     pDS9FXQonos = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/HighRes/Qonos.nif")
                     pSet.AddObjectToSet(pDS9FXQonos, "Qo'nos")
                     
                     pDS9FXQonos.PlaceObjectByName( "Colony" )
+	    	    pDS9FXQonos.SetAtmosphereRadius(0.01)
                     pDS9FXQonos.UpdateNodeOnly()                       
                     
                     pPlanet3 = App.Planet_Create(150.0, "data/Models/Environment/DS9FX/HighRes/Planet002.nif")
                     pSet.AddObjectToSet(pPlanet3, "Qo'nos 4")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()  
                     
                     pPlanet4 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/HighRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet4, "Qo'nos 5")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()      
                     
                     pPlanet5 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/HighRes/bajor9High.nif")
                     pSet.AddObjectToSet(pPlanet5, "Qo'nos 6")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()                          
 
                     if DS9FXSavedConfig.QonosNanoFX == 1:
@@ -76,36 +82,42 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet1, "Qo'nos 1")
 
                     pPlanet1.PlaceObjectByName("Planet1")
+	    	    pPlanet1.SetAtmosphereRadius(0.01)
                     pPlanet1.UpdateNodeOnly()  
                     
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/StandardRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet2, "Qo'nos 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()  
                     
                     pDS9FXQonos = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/StandardRes/Qonos.nif")
                     pSet.AddObjectToSet(pDS9FXQonos, "Qo'nos")
                     
                     pDS9FXQonos.PlaceObjectByName( "Colony" )
+	    	    pDS9FXQonos.SetAtmosphereRadius(0.01)
                     pDS9FXQonos.UpdateNodeOnly()                       
                     
                     pPlanet3 = App.Planet_Create(150.0, "data/Models/Environment/DS9FX/StandardRes/Planet002.nif")
                     pSet.AddObjectToSet(pPlanet3, "Qo'nos 4")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()  
                     
                     pPlanet4 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/StandardRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet4, "Qo'nos 5")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()      
                     
                     pPlanet5 = App.Planet_Create(200.0, "data/Models/Environment/DS9FX/StandardRes/bajor9High.nif")
                     pSet.AddObjectToSet(pPlanet5, "Qo'nos 6")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()                          
 
                     if DS9FXSavedConfig.QonosNanoFX == 1:
@@ -126,36 +138,42 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet1, "Qo'nos 1")
 
                     pPlanet1.PlaceObjectByName("Planet1")
+	    	    pPlanet1.SetAtmosphereRadius(0.01)
                     pPlanet1.UpdateNodeOnly()  
                     
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/LowRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet2, "Qo'nos 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()  
                     
                     pDS9FXQonos = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/LowRes/Qonos.nif")
                     pSet.AddObjectToSet(pDS9FXQonos, "Qo'nos")
                     
                     pDS9FXQonos.PlaceObjectByName( "Colony" )
+	    	    pDS9FXQonos.SetAtmosphereRadius(0.01)
                     pDS9FXQonos.UpdateNodeOnly()                       
                     
                     pPlanet3 = App.Planet_Create(150.0, "data/Models/Environment/DS9FX/LowRes/Planet002.nif")
                     pSet.AddObjectToSet(pPlanet3, "Qo'nos 4")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()  
                     
                     pPlanet4 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/LowRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet4, "Qo'nos 5")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()      
                     
                     pPlanet5 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/LowRes/bajor9High.nif")
                     pSet.AddObjectToSet(pPlanet5, "Qo'nos 6")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()                          
 
                     if DS9FXSavedConfig.QonosNanoFX == 1:
@@ -176,36 +194,42 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet1, "Qo'nos 1")
 
                     pPlanet1.PlaceObjectByName("Planet1")
+	    	    pPlanet1.SetAtmosphereRadius(0.01)
                     pPlanet1.UpdateNodeOnly()  
                     
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/LowestRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet2, "Qo'nos 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()  
                     
                     pDS9FXQonos = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/LowestRes/Qonos.nif")
                     pSet.AddObjectToSet(pDS9FXQonos, "Qo'nos")
                     
                     pDS9FXQonos.PlaceObjectByName( "Colony" )
+	    	    pDS9FXQonos.SetAtmosphereRadius(0.01)
                     pDS9FXQonos.UpdateNodeOnly()                       
                     
                     pPlanet3 = App.Planet_Create(150.0, "data/Models/Environment/DS9FX/LowestRes/Planet002.nif")
                     pSet.AddObjectToSet(pPlanet3, "Qo'nos 4")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()  
                     
                     pPlanet4 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/LowestRes/Gamma1High.nif")
                     pSet.AddObjectToSet(pPlanet4, "Qo'nos 5")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()      
                     
                     pPlanet5 = App.Planet_Create(175.0, "data/Models/Environment/DS9FX/LowestRes/bajor9High.nif")
                     pSet.AddObjectToSet(pPlanet5, "Qo'nos 6")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()                          
 
                     if DS9FXSavedConfig.QonosNanoFX == 1:

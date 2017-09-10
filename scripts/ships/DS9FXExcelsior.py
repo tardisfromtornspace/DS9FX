@@ -4,9 +4,9 @@ import Multiplayer.SpeciesToShip
 
 def GetShipStats():
 	kShipStats = {
-		"FilenameHigh": "data/Models/ships/DS9FX/Excelsior/Excelsior.nif",
-		"FilenameMed": "data/Models/ships/DS9FX/Excelsior/ExcelsiorMed.nif",
-		"FilenameLow": "data/Models/ships/DS9FX/Excelsior/ExcelsiorLow.nif",
+		"FilenameHigh": "data/Models/Ships/DS9FX/Excelsior/Excelsior.nif",
+		"FilenameMed": "data/Models/Ships/DS9FX/Excelsior/Excelsior.nif",
+		"FilenameLow": "data/Models/ships/DS9FX/Excelsior/Excelsior.nif",
 		"Name": "DS9FXExcelsior",
 		"HardpointFile": "DS9FXExcelsior",
 		"Species": Multiplayer.SpeciesToShip.AMBASSADOR
@@ -22,7 +22,7 @@ def LoadModel(bPreLoad = 0):
 		# Surface Damage Res, Internal Damage Res, Burn Value, Hole Value,
 		# Search String for Glow, Search string for Specular, Suffix for specular
 		pLODModel = App.g_kLODModelManager.Create(pStats["Name"])
-		pLODModel.AddLOD(pStats["FilenameHigh"], 10, 200.0, 15.0, 15.0, 400, 900, "_glow", None, "_specular")
+		pLODModel.AddLOD(pStats["FilenameHigh"], 10, 200.0, 15.0, 15.0, 400, 900, "_glow", None, "-specular")
 		pLODModel.AddLOD(pStats["FilenameMed"],  10, 400.0, 15.0, 15.0, 400, 900, "_glow", None, "_specular")
 		pLODModel.AddLOD(pStats["FilenameLow"],  10, 800.0, 15.0, 30.0, 400, 900, "_glow", None, None)
 

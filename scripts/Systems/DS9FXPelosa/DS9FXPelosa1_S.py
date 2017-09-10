@@ -38,30 +38,35 @@ def Initialize(pSet):
                 pSet.AddObjectToSet(pPelosa1, "Pelosa I")
         
                 pPelosa1.PlaceObjectByName( "Planet1" )
+	    	pPelosa1.SetAtmosphereRadius(0.01)
                 pPelosa1.UpdateNodeOnly()
         
                 pPelosa2 = App.Planet_Create(75.0, sPath + "Planet002.nif")
                 pSet.AddObjectToSet(pPelosa2, "Pelosa II")
         
                 pPelosa2.PlaceObjectByName( "Planet2" )
+	    	pPelosa2.SetAtmosphereRadius(0.01)
                 pPelosa2.UpdateNodeOnly()
         
                 pPelosa3 = App.Planet_Create(180.0, sPath + "Gamma1High.nif")
                 pSet.AddObjectToSet(pPelosa3, "Pelosa III")
         
                 pPelosa3.PlaceObjectByName( "Planet3" )
+	    	pPelosa3.SetAtmosphereRadius(0.01)
                 pPelosa3.UpdateNodeOnly()
         
                 pPelosa4 = App.Planet_Create(180.0, sPath + "Donatu6.nif")
                 pSet.AddObjectToSet(pPelosa4, "Pelosa IV")
         
                 pPelosa4.PlaceObjectByName( "Planet4" )
+	    	pPelosa4.SetAtmosphereRadius(0.01)
                 pPelosa4.UpdateNodeOnly()
         
                 pPelosa5 = App.Planet_Create(100.0, sPath + "Planet004.nif")
                 pSet.AddObjectToSet(pPelosa5, "Pelosa V")
         
                 pPelosa5.PlaceObjectByName( "Planet5" )
+	    	pPelosa5.SetAtmosphereRadius(0.01)
                 pPelosa5.UpdateNodeOnly()
         
                 if DS9FXSavedConfig.PelosaNanoFX == 1:

@@ -28,12 +28,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet2, "Karemma 1")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/HighRes/Karemma.nif")
                         pSet.AddObjectToSet(pPlanet, "Karemman Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KaremmaNanoFX == 1:
@@ -50,12 +52,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet2, "Karemma 1")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/StandardRes/Karemma.nif")
                         pSet.AddObjectToSet(pPlanet, "Karemman Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KaremmaNanoFX == 1:
@@ -72,12 +76,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet2, "Karemma 1")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/LowRes/Karemma.nif")
                         pSet.AddObjectToSet(pPlanet, "Karemman Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KaremmaNanoFX == 1:
@@ -94,12 +100,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet2, "Karemma 1")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/LowestRes/Karemma.nif")
                         pSet.AddObjectToSet(pPlanet, "Karemman Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KaremmaNanoFX == 1:

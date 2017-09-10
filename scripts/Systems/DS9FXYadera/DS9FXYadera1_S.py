@@ -25,30 +25,35 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Yadera 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/HighRes/Planet006.nif")
                     pSet.AddObjectToSet(pPlanet2, "Yadera 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/HighRes/Planet005.nif")
                     pSet.AddObjectToSet(pPlanet3, "Yadera 3")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/HighRes/YaderaPrime.nif")
                     pSet.AddObjectToSet(pPlanet4, "Yadera Prime")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     pPlanet5 = App.Planet_Create(180.0, "data/Models/Environment/DS9FX/HighRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet5, "Yadera 5")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.YaderaNanoFX == 1:
@@ -68,30 +73,35 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Yadera 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/StandardRes/Planet006.nif")
                     pSet.AddObjectToSet(pPlanet2, "Yadera 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/StandardRes/Planet005.nif")
                     pSet.AddObjectToSet(pPlanet3, "Yadera 3")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/StandardRes/YaderaPrime.nif")
                     pSet.AddObjectToSet(pPlanet4, "Yadera Prime")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     pPlanet5 = App.Planet_Create(180.0, "data/Models/Environment/DS9FX/StandardRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet5, "Yadera 5")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.YaderaNanoFX == 1:
@@ -111,30 +121,35 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Yadera 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/LowRes/Planet006.nif")
                     pSet.AddObjectToSet(pPlanet2, "Yadera 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/LowRes/Planet005.nif")
                     pSet.AddObjectToSet(pPlanet3, "Yadera 3")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/LowRes/YaderaPrime.nif")
                     pSet.AddObjectToSet(pPlanet4, "Yadera Prime")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     pPlanet5 = App.Planet_Create(180.0, "data/Models/Environment/DS9FX/LowRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet5, "Yadera 5")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.YaderaNanoFX == 1:
@@ -154,30 +169,35 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Yadera 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/LowestRes/Planet006.nif")
                     pSet.AddObjectToSet(pPlanet2, "Yadera 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/LowestRes/Planet005.nif")
                     pSet.AddObjectToSet(pPlanet3, "Yadera 3")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(95.0, "data/Models/Environment/DS9FX/LowestRes/YaderaPrime.nif")
                     pSet.AddObjectToSet(pPlanet4, "Yadera Prime")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     pPlanet5 = App.Planet_Create(180.0, "data/Models/Environment/DS9FX/LowestRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet5, "Yadera 5")
 
                     pPlanet5.PlaceObjectByName("Planet5")
+	    	    pPlanet5.SetAtmosphereRadius(0.01)
                     pPlanet5.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.YaderaNanoFX == 1:

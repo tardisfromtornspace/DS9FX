@@ -11,6 +11,7 @@ playerMenuGroup = "DS9FX Ships"
 Foundation.ShipDef.DS9FXLakota = Foundation.FedShipDef(abbrev, species, { 'name': longName, 'iconName': iconName, 'shipFile': shipFile })
 
 Foundation.ShipDef.DS9FXLakota.SubMenu = "Federation Ships"
+Foundation.ShipDef.DS9FXLakota.SubSubMenu = "Excelsior"
 Foundation.ShipDef.DS9FXLakota.fMaxWarp = 9.4 + 0.0001
 Foundation.ShipDef.DS9FXLakota.fCruiseWarp = 9 + 0.0001
 Foundation.ShipDef.DS9FXLakota.fCrew = 750

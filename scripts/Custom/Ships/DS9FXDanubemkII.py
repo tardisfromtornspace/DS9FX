@@ -3,7 +3,7 @@ import Foundation
 
 abbrev = "DS9FXDanubemkII"
 iconName = "DS9FXDanubemkII"
-longName = "Danube MKII"
+longName = "Danube Mk II"
 shipFile = "DS9FXDanubemkII"
 species = App.SPECIES_GALAXY
 menuGroup = "DS9FX Ships"

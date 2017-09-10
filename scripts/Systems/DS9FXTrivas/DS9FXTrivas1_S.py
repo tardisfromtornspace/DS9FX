@@ -14,7 +14,7 @@ def Initialize(pSet):
         pSun.UpdateNodeOnly()
 
         Tactical.LensFlares.BlueLensFlare(pSet, pSun, 1, 0.35, 0.35)
-        SunStreak.Create(pSet, "SunStr", 70000.0, "DarkBlue", "2")
+        SunStreak.Create(pSet, "SunStr", 100000.0, "DarkBlue", "2")
 
         reload(DS9FXSavedConfig)
         if DS9FXSavedConfig.TrivasMapPlanetDetail == 3:
@@ -23,24 +23,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pTrivas1, "Trivas 1")
 
                         pTrivas1.PlaceObjectByName( "Trivas 1" )
+	    		pTrivas1.SetAtmosphereRadius(0.01)
                         pTrivas1.UpdateNodeOnly()
 
                         pTrivas2 = App.Planet_Create(60.0, "data/models/environment/DS9FX/HighRes/Planet004.nif")
                         pSet.AddObjectToSet(pTrivas2, "Trivas 2")
 
                         pTrivas2.PlaceObjectByName( "Trivas 2" )
+	    		pTrivas2.SetAtmosphereRadius(0.01)
                         pTrivas2.UpdateNodeOnly()
 
                         pTrivas3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/HighRes/Planet001.nif")
                         pSet.AddObjectToSet(pTrivas3, "Trivas 3")
 
                         pTrivas3.PlaceObjectByName( "Trivas 3" )
+	    		pTrivas3.SetAtmosphereRadius(0.01)
                         pTrivas3.UpdateNodeOnly()
 
                         pTrivas4 = App.Planet_Create(110.0, "data/models/environment/DS9FX/HighRes/Planet006.nif")
                         pSet.AddObjectToSet(pTrivas4, "Trivas 4")
 
                         pTrivas4.PlaceObjectByName( "Trivas 4" )
+	    		pTrivas4.SetAtmosphereRadius(0.01)
                         pTrivas4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.TrivasNanoFX == 1:
@@ -59,24 +63,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pTrivas1, "Trivas 1")
 
                         pTrivas1.PlaceObjectByName( "Trivas 1" )
+	    		pTrivas1.SetAtmosphereRadius(0.01)
                         pTrivas1.UpdateNodeOnly()
 
                         pTrivas2 = App.Planet_Create(60.0, "data/models/environment/DS9FX/StandardRes/Planet004.nif")
                         pSet.AddObjectToSet(pTrivas2, "Trivas 2")
 
                         pTrivas2.PlaceObjectByName( "Trivas 2" )
+	    		pTrivas2.SetAtmosphereRadius(0.01)
                         pTrivas2.UpdateNodeOnly()
 
                         pTrivas3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/StandardRes/Planet001.nif")
                         pSet.AddObjectToSet(pTrivas3, "Trivas 3")
 
                         pTrivas3.PlaceObjectByName( "Trivas 3" )
+	    		pTrivas3.SetAtmosphereRadius(0.01)
                         pTrivas3.UpdateNodeOnly()
 
                         pTrivas4 = App.Planet_Create(110.0, "data/models/environment/DS9FX/StandardRes/Planet006.nif")
                         pSet.AddObjectToSet(pTrivas4, "Trivas 4")
 
                         pTrivas4.PlaceObjectByName( "Trivas 4" )
+	    		pTrivas4.SetAtmosphereRadius(0.01)
                         pTrivas4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.TrivasNanoFX == 1:
@@ -95,24 +103,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pTrivas1, "Trivas 1")
 
                         pTrivas1.PlaceObjectByName( "Trivas 1" )
+	    		pTrivas1.SetAtmosphereRadius(0.01)
                         pTrivas1.UpdateNodeOnly()
 
                         pTrivas2 = App.Planet_Create(60.0, "data/models/environment/DS9FX/LowRes/Planet004.nif")
                         pSet.AddObjectToSet(pTrivas2, "Trivas 2")
 
                         pTrivas2.PlaceObjectByName( "Trivas 2" )
+	    		pTrivas2.SetAtmosphereRadius(0.01)
                         pTrivas2.UpdateNodeOnly()
 
                         pTrivas3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/LowRes/Planet001.nif")
                         pSet.AddObjectToSet(pTrivas3, "Trivas 3")
 
                         pTrivas3.PlaceObjectByName( "Trivas 3" )
+	    		pTrivas3.SetAtmosphereRadius(0.01)
                         pTrivas3.UpdateNodeOnly()
 
                         pTrivas4 = App.Planet_Create(110.0, "data/models/environment/DS9FX/LowRes/Planet006.nif")
                         pSet.AddObjectToSet(pTrivas4, "Trivas 4")
 
                         pTrivas4.PlaceObjectByName( "Trivas 4" )
+	    		pTrivas4.SetAtmosphereRadius(0.01)
                         pTrivas4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.TrivasNanoFX == 1:
@@ -130,24 +142,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pTrivas1, "Trivas 1")
 
                         pTrivas1.PlaceObjectByName( "Trivas 1" )
+	    		pTrivas1.SetAtmosphereRadius(0.01)
                         pTrivas1.UpdateNodeOnly()
 
                         pTrivas2 = App.Planet_Create(60.0, "data/models/environment/DS9FX/LowestRes/Planet004.nif")
                         pSet.AddObjectToSet(pTrivas2, "Trivas 2")
 
                         pTrivas2.PlaceObjectByName( "Trivas 2" )
+	    		pTrivas2.SetAtmosphereRadius(0.01)
                         pTrivas2.UpdateNodeOnly()
 
                         pTrivas3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/LowestRes/Planet001.nif")
                         pSet.AddObjectToSet(pTrivas3, "Trivas 3")
 
                         pTrivas3.PlaceObjectByName( "Trivas 3" )
+	    		pTrivas3.SetAtmosphereRadius(0.01)
                         pTrivas3.UpdateNodeOnly()
 
                         pTrivas4 = App.Planet_Create(110.0, "data/models/environment/DS9FX/LowestRes/Planet006.nif")
                         pSet.AddObjectToSet(pTrivas4, "Trivas 4")
 
                         pTrivas4.PlaceObjectByName( "Trivas 4" )
+	    		pTrivas4.SetAtmosphereRadius(0.01)
                         pTrivas4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.TrivasNanoFX == 1:

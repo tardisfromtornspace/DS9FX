@@ -28,36 +28,42 @@ def Initialize(pSet):
                 pSet.AddObjectToSet(pSeptimus1, "Septimus I")
 
                 pSeptimus1.PlaceObjectByName( "Septimus 1" )
+	    	pSeptimus1.SetAtmosphereRadius(0.01)
                 pSeptimus1.UpdateNodeOnly()
 
                 pSeptimus2 = App.Planet_Create(105.0, sPath + "Septimus2.nif")
                 pSet.AddObjectToSet(pSeptimus2, "Septimus II")
 
                 pSeptimus2.PlaceObjectByName( "Septimus 2" )
+	    	pSeptimus2.SetAtmosphereRadius(0.01)
                 pSeptimus2.UpdateNodeOnly()
 
                 pSeptimus3 = App.Planet_Create(85.0, sPath + "Septimus3.nif")
                 pSet.AddObjectToSet(pSeptimus3, "Septimus III")
 
                 pSeptimus3.PlaceObjectByName( "Septimus 3" )
+	    	pSeptimus3.SetAtmosphereRadius(0.01)
                 pSeptimus3.UpdateNodeOnly()
 
                 pSeptimus4 = App.Planet_Create(120.0, sPath + "Septimus4.nif")
                 pSet.AddObjectToSet(pSeptimus4, "Septimus IV")
 
                 pSeptimus4.PlaceObjectByName( "Septimus 4" )
+	    	pSeptimus4.SetAtmosphereRadius(0.01)
                 pSeptimus4.UpdateNodeOnly()
 
                 pSeptimus5 = App.Planet_Create(60.0, sPath + "Septimus5.nif")
                 pSet.AddObjectToSet(pSeptimus5, "Septimus V")
 
                 pSeptimus5.PlaceObjectByName( "Septimus 5" )
+	    	pSeptimus5.SetAtmosphereRadius(0.01)
                 pSeptimus5.UpdateNodeOnly()
 
                 pSeptimus6 = App.Planet_Create(240.0, sPath + "Septimus6.nif")
                 pSet.AddObjectToSet(pSeptimus6, "Septimus VI")
 
                 pSeptimus6.PlaceObjectByName( "Septimus 6" )
+	    	pSeptimus6.SetAtmosphereRadius(0.01)
                 pSeptimus6.UpdateNodeOnly()
 
                 if DS9FXSavedConfig.SeptimusNanoFX == 1:

@@ -1,0 +1,21 @@
+Xtended 1.2 Changelong
+----------------------
+
+ - Replaced stock DS9 model with version from Aftermath mod (http://www.nexusmods.com/startrekbridgecommmander/mods/3459/?)
+ - Starbase 375 now uses Starbase 329 model instead of stock FedStarbase model (http://www.nexusmods.com/startrekbridgecommmander/mods/3895/?)
+	- Both stations support docking and are working properly
+ - Added Dominion Battleship (seen in the DS9 season 6 episode "Valiant") (http://www.nexusmods.com/startrekbridgecommmander/mods/2251/?)
+ - Replaced Dominion Warship in mini mission "Valiant" with Dominion Battleship
+ - Added code to each DS9FX planet (pPlanet.SetAtmosphereRadius(0.01)) to prevent atmosphere ionization when orbiting smaller planets
+ - Additional bug fixes for Trivas system
+	- Directional lighting adjusted so that the light source better matches sun's location
+	- Fixed position of sunstreak
+	- Warp-in position adjusted
+ - Lighting changes for Starbase 375 system
+ - Sun removed from Starbase 375 system
+----------------------------------------------------------------------------------------------------------------------------------------------
+ - Excelsior and Lakota now grouped under "Excelsior" submenu in DS9FX Ships -> Federation Ships
+ - Added Blackrook's updated Major Kira bot
+ - Replacements for Akira, Centaur, Defiant, Excelsior, Galaxy, Lakota, Nebula, Negh'var, and Sovereign implimented
+ - Hardpoint rebalance
+ - Slightly brightened Starbase 375 ambient lighting based on feedback from Blackrook

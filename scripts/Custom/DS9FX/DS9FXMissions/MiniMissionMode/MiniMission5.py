@@ -383,7 +383,7 @@ def MissionSetup():
         pMission = pEpisode.GetCurrentMission()
         pSet = MissionLib.GetPlayer().GetContainingSet()
 
-        loadspacehelper.CreateShip(DS9FXShips.DomBC, pSet, "Dreadnought", "DomDread Pos")
+        loadspacehelper.CreateShip(DS9FXShips.DomBB, pSet, "Dreadnought", "DomDread Pos")
 
         import Custom.DS9FX.DS9FXAILib.DS9FXDomDreadAI
 

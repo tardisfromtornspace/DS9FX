@@ -28,12 +28,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Kurill Prime")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/HighRes/Planet005.nif")
                         pSet.AddObjectToSet(pPlanet2, "Kurill 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KurrillNanoFX == 1:
@@ -50,12 +52,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Kurill Prime")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/StandardRes/Planet005.nif")
                         pSet.AddObjectToSet(pPlanet2, "Kurill 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KurrillNanoFX == 1:
@@ -72,12 +76,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Kurill Prime")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/LowRes/Planet005.nif")
                         pSet.AddObjectToSet(pPlanet2, "Kurill 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KurrillNanoFX == 1:
@@ -94,12 +100,14 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Kurill Prime")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(88.0, "data/Models/Environment/DS9FX/LowestRes/Planet005.nif")
                         pSet.AddObjectToSet(pPlanet2, "Kurill 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.KurrillNanoFX == 1:

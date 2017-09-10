@@ -31,6 +31,7 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Founders Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.FoundersNanoFX == 1:
@@ -46,6 +47,7 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Founders Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.FoundersNanoFX == 1:
@@ -61,6 +63,7 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Founders Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.FoundersNanoFX == 1:
@@ -76,6 +79,7 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Founders Homeworld")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.FoundersNanoFX == 1:

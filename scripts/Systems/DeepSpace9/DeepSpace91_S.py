@@ -24,7 +24,7 @@ def Initialize(pSet):
         pSun.PlaceObjectByName( "Sun" )
         pSun.UpdateNodeOnly()
         
-        Tactical.LensFlares.RedOrangeLensFlare(pSet, pSun, 1, 0.35, 0.35)
+        Tactical.LensFlares.RedOrangeLensFlare(pSet, pSun, 1, 0.25, 0.25)
         SunStreak.Create(pSet, "SunStr", 100000.0, "Yellow", "2")        
 
         reload(DS9FXSavedConfig)
@@ -34,84 +34,98 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    		pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/HighRes/Bajor2High.nif")
                         pSet.AddObjectToSet(pPlanet2, "Bajor 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    		pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/HighRes/Bajor3High.nif")
                         pSet.AddObjectToSet(pPlanet3, "Bajoran Homeworld")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    		pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly() 
 
                         pPlanet4 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/HighRes/Bajor4High.nif")
                         pSet.AddObjectToSet(pPlanet4, "Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    		pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()  
 
                         pPlanet5 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/HighRes/Bajor5High.nif")
                         pSet.AddObjectToSet(pPlanet5, "Bajor 5")
 
                         pPlanet5.PlaceObjectByName("Planet5")
+	    		pPlanet5.SetAtmosphereRadius(0.01)
                         pPlanet5.UpdateNodeOnly()  
 
                         pPlanet6 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/HighRes/Bajor6High.nif")
                         pSet.AddObjectToSet(pPlanet6, "Bajor 6")
 
                         pPlanet6.PlaceObjectByName("Planet6")
+	    		pPlanet6.SetAtmosphereRadius(0.01)
                         pPlanet6.UpdateNodeOnly()   
 
                         pPlanet7 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/HighRes/Bajor7High.nif")
                         pSet.AddObjectToSet(pPlanet7, "Bajor 7")
 
                         pPlanet7.PlaceObjectByName("Planet7")
+	    		pPlanet7.SetAtmosphereRadius(0.01)
                         pPlanet7.UpdateNodeOnly()    
 
                         pPlanet8 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/HighRes/Bajor8High.nif")
                         pSet.AddObjectToSet(pPlanet8, "Bajor 8")
 
                         pPlanet8.PlaceObjectByName("Planet8")
+	    		pPlanet8.SetAtmosphereRadius(0.01)
                         pPlanet8.UpdateNodeOnly()    
 
                         pPlanet9 = App.Planet_Create(40.0, "data/Models/Environment/DS9FX/HighRes/Bajor11High.nif")
                         pSet.AddObjectToSet(pPlanet9, "Bajor 9")
 
                         pPlanet9.PlaceObjectByName("Planet9")
+	    		pPlanet9.SetAtmosphereRadius(0.01)
                         pPlanet9.UpdateNodeOnly()    
 
                         pPlanet10 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/HighRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet10, "Bajor 10")
 
                         pPlanet10.PlaceObjectByName("Planet10")
+	    		pPlanet10.SetAtmosphereRadius(0.01)
                         pPlanet10.UpdateNodeOnly()   
 
                         pPlanet11 = App.Planet_Create(200.0, "data/Models/Environment/DS9FX/HighRes/Bajor10High.nif")
                         pSet.AddObjectToSet(pPlanet11, "Bajor 11")
 
                         pPlanet11.PlaceObjectByName("Planet11")
+	    		pPlanet11.SetAtmosphereRadius(0.01)
                         pPlanet11.UpdateNodeOnly()     
 
                         pPlanet12 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/HighRes/Bajor12High.nif")
                         pSet.AddObjectToSet(pPlanet12, "Bajor 12")
 
                         pPlanet12.PlaceObjectByName("Planet12")
+	    		pPlanet12.SetAtmosphereRadius(0.01)
                         pPlanet12.UpdateNodeOnly()     
 
                         pPlanet13 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/HighRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet13, "Bajor 13")
 
                         pPlanet13.PlaceObjectByName("Planet13")
+	    		pPlanet13.SetAtmosphereRadius(0.01)
                         pPlanet13.UpdateNodeOnly()     
 
                         pPlanet14 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/HighRes/Bajor13High.nif")
                         pSet.AddObjectToSet(pPlanet14, "Bajor 14")
 
                         pPlanet14.PlaceObjectByName("Planet14")
+	    		pPlanet14.SetAtmosphereRadius(0.01)
                         pPlanet14.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.DS9NanoFX == 1:
@@ -148,84 +162,98 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    		pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/StandardRes/Bajor2High.nif")
                         pSet.AddObjectToSet(pPlanet2, "Bajor 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    		pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/StandardRes/Bajor3High.nif")
                         pSet.AddObjectToSet(pPlanet3, "Bajoran Homeworld")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    		pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly() 
 
                         pPlanet4 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/StandardRes/Bajor4High.nif")
                         pSet.AddObjectToSet(pPlanet4, "Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    		pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()  
 
                         pPlanet5 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/StandardRes/Bajor5High.nif")
                         pSet.AddObjectToSet(pPlanet5, "Bajor 5")
 
                         pPlanet5.PlaceObjectByName("Planet5")
+	    		pPlanet5.SetAtmosphereRadius(0.01)
                         pPlanet5.UpdateNodeOnly()  
 
                         pPlanet6 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/StandardRes/Bajor6High.nif")
                         pSet.AddObjectToSet(pPlanet6, "Bajor 6")
 
                         pPlanet6.PlaceObjectByName("Planet6")
+	    		pPlanet6.SetAtmosphereRadius(0.01)
                         pPlanet6.UpdateNodeOnly()   
 
                         pPlanet7 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/StandardRes/Bajor7High.nif")
                         pSet.AddObjectToSet(pPlanet7, "Bajor 7")
 
                         pPlanet7.PlaceObjectByName("Planet7")
+	    		pPlanet7.SetAtmosphereRadius(0.01)
                         pPlanet7.UpdateNodeOnly()    
 
                         pPlanet8 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/StandardRes/Bajor8High.nif")
                         pSet.AddObjectToSet(pPlanet8, "Bajor 8")
 
                         pPlanet8.PlaceObjectByName("Planet8")
+	    		pPlanet8.SetAtmosphereRadius(0.01)
                         pPlanet8.UpdateNodeOnly()    
 
                         pPlanet9 = App.Planet_Create(40.0, "data/Models/Environment/DS9FX/StandardRes/Bajor11High.nif")
                         pSet.AddObjectToSet(pPlanet9, "Bajor 9")
 
                         pPlanet9.PlaceObjectByName("Planet9")
+	    		pPlanet9.SetAtmosphereRadius(0.01)
                         pPlanet9.UpdateNodeOnly()    
 
                         pPlanet10 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/StandardRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet10, "Bajor 10")
 
                         pPlanet10.PlaceObjectByName("Planet10")
+	    		pPlanet10.SetAtmosphereRadius(0.01)
                         pPlanet10.UpdateNodeOnly()   
 
                         pPlanet11 = App.Planet_Create(200.0, "data/Models/Environment/DS9FX/StandardRes/Bajor10High.nif")
                         pSet.AddObjectToSet(pPlanet11, "Bajor 11")
 
                         pPlanet11.PlaceObjectByName("Planet11")
+	    		pPlanet11.SetAtmosphereRadius(0.01)
                         pPlanet11.UpdateNodeOnly()     
 
                         pPlanet12 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/StandardRes/Bajor12High.nif")
                         pSet.AddObjectToSet(pPlanet12, "Bajor 12")
 
                         pPlanet12.PlaceObjectByName("Planet12")
+	    		pPlanet12.SetAtmosphereRadius(0.01)
                         pPlanet12.UpdateNodeOnly()     
 
                         pPlanet13 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/StandardRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet13, "Bajor 13")
 
                         pPlanet13.PlaceObjectByName("Planet13")
+	    		pPlanet13.SetAtmosphereRadius(0.01)
                         pPlanet13.UpdateNodeOnly()     
 
                         pPlanet14 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/StandardRes/Bajor13High.nif")
                         pSet.AddObjectToSet(pPlanet14, "Bajor 14")
 
                         pPlanet14.PlaceObjectByName("Planet14")
+	    		pPlanet14.SetAtmosphereRadius(0.01)
                         pPlanet14.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.DS9NanoFX == 1:
@@ -265,84 +293,98 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    		pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/LowRes/Bajor2High.nif")
                         pSet.AddObjectToSet(pPlanet2, "Bajor 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    		pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowRes/Bajor3High.nif")
                         pSet.AddObjectToSet(pPlanet3, "Bajoran Homeworld")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    		pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly() 
 
                         pPlanet4 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/LowRes/Bajor4High.nif")
                         pSet.AddObjectToSet(pPlanet4, "Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    		pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()  
 
                         pPlanet5 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowRes/Bajor5High.nif")
                         pSet.AddObjectToSet(pPlanet5, "Bajor 5")
 
                         pPlanet5.PlaceObjectByName("Planet5")
+	    		pPlanet5.SetAtmosphereRadius(0.01)
                         pPlanet5.UpdateNodeOnly()  
 
                         pPlanet6 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowRes/Bajor6High.nif")
                         pSet.AddObjectToSet(pPlanet6, "Bajor 6")
 
                         pPlanet6.PlaceObjectByName("Planet6")
+	    		pPlanet6.SetAtmosphereRadius(0.01)
                         pPlanet6.UpdateNodeOnly()   
 
                         pPlanet7 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowRes/Bajor7High.nif")
                         pSet.AddObjectToSet(pPlanet7, "Bajor 7")
 
                         pPlanet7.PlaceObjectByName("Planet7")
+	    		pPlanet7.SetAtmosphereRadius(0.01)
                         pPlanet7.UpdateNodeOnly()    
 
                         pPlanet8 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/LowRes/Bajor8High.nif")
                         pSet.AddObjectToSet(pPlanet8, "Bajor 8")
 
                         pPlanet8.PlaceObjectByName("Planet8")
+	    		pPlanet8.SetAtmosphereRadius(0.01)
                         pPlanet8.UpdateNodeOnly()    
 
                         pPlanet9 = App.Planet_Create(40.0, "data/Models/Environment/DS9FX/LowRes/Bajor11High.nif")
                         pSet.AddObjectToSet(pPlanet9, "Bajor 9")
 
                         pPlanet9.PlaceObjectByName("Planet9")
+	    		pPlanet9.SetAtmosphereRadius(0.01)
                         pPlanet9.UpdateNodeOnly()    
 
                         pPlanet10 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet10, "Bajor 10")
 
                         pPlanet10.PlaceObjectByName("Planet10")
+	    		pPlanet10.SetAtmosphereRadius(0.01)
                         pPlanet10.UpdateNodeOnly()   
 
                         pPlanet11 = App.Planet_Create(200.0, "data/Models/Environment/DS9FX/LowRes/Bajor10High.nif")
                         pSet.AddObjectToSet(pPlanet11, "Bajor 11")
 
                         pPlanet11.PlaceObjectByName("Planet11")
+	    		pPlanet11.SetAtmosphereRadius(0.01)
                         pPlanet11.UpdateNodeOnly()     
 
                         pPlanet12 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowRes/Bajor12High.nif")
                         pSet.AddObjectToSet(pPlanet12, "Bajor 12")
 
                         pPlanet12.PlaceObjectByName("Planet12")
+	    		pPlanet12.SetAtmosphereRadius(0.01)
                         pPlanet12.UpdateNodeOnly()     
 
                         pPlanet13 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/LowRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet13, "Bajor 13")
 
                         pPlanet13.PlaceObjectByName("Planet13")
+	    		pPlanet13.SetAtmosphereRadius(0.01)
                         pPlanet13.UpdateNodeOnly()     
 
                         pPlanet14 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowRes/Bajor13High.nif")
                         pSet.AddObjectToSet(pPlanet14, "Bajor 14")
 
                         pPlanet14.PlaceObjectByName("Planet14")
+	    		pPlanet14.SetAtmosphereRadius(0.01)
                         pPlanet14.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.DS9NanoFX == 1:
@@ -382,84 +424,98 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    		pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(55.0, "data/Models/Environment/DS9FX/LowestRes/Bajor2High.nif")
                         pSet.AddObjectToSet(pPlanet2, "Bajor 2")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    		pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowestRes/Bajor3High.nif")
                         pSet.AddObjectToSet(pPlanet3, "Bajoran Homeworld")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    		pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly() 
 
                         pPlanet4 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/LowestRes/Bajor4High.nif")
                         pSet.AddObjectToSet(pPlanet4, "Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    		pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()  
 
                         pPlanet5 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowestRes/Bajor5High.nif")
                         pSet.AddObjectToSet(pPlanet5, "Bajor 5")
 
                         pPlanet5.PlaceObjectByName("Planet5")
+	    		pPlanet5.SetAtmosphereRadius(0.01)
                         pPlanet5.UpdateNodeOnly()  
 
                         pPlanet6 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowestRes/Bajor6High.nif")
                         pSet.AddObjectToSet(pPlanet6, "Bajor 6")
 
                         pPlanet6.PlaceObjectByName("Planet6")
+	    		pPlanet6.SetAtmosphereRadius(0.01)
                         pPlanet6.UpdateNodeOnly()
 
                         pPlanet7 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowestRes/Bajor7High.nif")
                         pSet.AddObjectToSet(pPlanet7, "Bajor 7")
 
                         pPlanet7.PlaceObjectByName("Planet7")
+	    		pPlanet7.SetAtmosphereRadius(0.01)
                         pPlanet7.UpdateNodeOnly()    
 
                         pPlanet8 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/LowestRes/Bajor8High.nif")
                         pSet.AddObjectToSet(pPlanet8, "Bajor 8")
 
                         pPlanet8.PlaceObjectByName("Planet8")
+	    		pPlanet8.SetAtmosphereRadius(0.01)
                         pPlanet8.UpdateNodeOnly()    
 
                         pPlanet9 = App.Planet_Create(40.0, "data/Models/Environment/DS9FX/LowestRes/Bajor11High.nif")
                         pSet.AddObjectToSet(pPlanet9, "Bajor 9")
 
                         pPlanet9.PlaceObjectByName("Planet9")
+	    		pPlanet9.SetAtmosphereRadius(0.01)
                         pPlanet9.UpdateNodeOnly()    
 
                         pPlanet10 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowestRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet10, "Bajor 10")
 
                         pPlanet10.PlaceObjectByName("Planet10")
+	    		pPlanet10.SetAtmosphereRadius(0.01)
                         pPlanet10.UpdateNodeOnly()   
 
                         pPlanet11 = App.Planet_Create(200.0, "data/Models/Environment/DS9FX/LowestRes/Bajor10High.nif")
                         pSet.AddObjectToSet(pPlanet11, "Bajor 11")
 
                         pPlanet11.PlaceObjectByName("Planet11")
+	    		pPlanet11.SetAtmosphereRadius(0.01)
                         pPlanet11.UpdateNodeOnly()     
 
                         pPlanet12 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowestRes/Bajor12High.nif")
                         pSet.AddObjectToSet(pPlanet12, "Bajor 12")
 
                         pPlanet12.PlaceObjectByName("Planet12")
+	    		pPlanet12.SetAtmosphereRadius(0.01)
                         pPlanet12.UpdateNodeOnly()     
 
                         pPlanet13 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/LowestRes/Bajor9High.nif")
                         pSet.AddObjectToSet(pPlanet13, "Bajor 13")
 
                         pPlanet13.PlaceObjectByName("Planet13")
+	    		pPlanet13.SetAtmosphereRadius(0.01)
                         pPlanet13.UpdateNodeOnly()     
 
                         pPlanet14 = App.Planet_Create(60.0, "data/Models/Environment/DS9FX/LowestRes/Bajor13High.nif")
                         pSet.AddObjectToSet(pPlanet14, "Bajor 14")
 
                         pPlanet14.PlaceObjectByName("Planet14")
+	    		pPlanet14.SetAtmosphereRadius(0.01)
                         pPlanet14.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.DS9NanoFX == 1:

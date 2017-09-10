@@ -29,24 +29,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "New Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(80.0, "data/Models/Environment/DS9FX/HighRes/NewBajor.nif")
                         pSet.AddObjectToSet(pPlanet2, "New Bajor Colony")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(110.0, "data/Models/Environment/DS9FX/HighRes/Planet004.nif")
                         pSet.AddObjectToSet(pPlanet3, "New Bajor 3")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    	    	pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly()
 
                         pPlanet4 = App.Planet_Create(275.0, "data/Models/Environment/DS9FX/HighRes/Gamma1High.nif")
                         pSet.AddObjectToSet(pPlanet4, "New Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    	    	pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.NewBajorNanoFX == 1:
@@ -65,24 +69,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "New Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(80.0, "data/Models/Environment/DS9FX/StandardRes/NewBajor.nif")
                         pSet.AddObjectToSet(pPlanet2, "New Bajor Colony")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(110.0, "data/Models/Environment/DS9FX/StandardRes/Planet004.nif")
                         pSet.AddObjectToSet(pPlanet3, "New Bajor 3")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    	    	pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly()
 
                         pPlanet4 = App.Planet_Create(275.0, "data/Models/Environment/DS9FX/StandardRes/Gamma1High.nif")
                         pSet.AddObjectToSet(pPlanet4, "New Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    	    	pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.NewBajorNanoFX == 1:
@@ -101,24 +109,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "New Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(80.0, "data/Models/Environment/DS9FX/LowRes/NewBajor.nif")
                         pSet.AddObjectToSet(pPlanet2, "New Bajor Colony")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(110.0, "data/Models/Environment/DS9FX/LowRes/Planet004.nif")
                         pSet.AddObjectToSet(pPlanet3, "New Bajor 3")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    	    	pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly()
 
                         pPlanet4 = App.Planet_Create(275.0, "data/Models/Environment/DS9FX/LowRes/Gamma1High.nif")
                         pSet.AddObjectToSet(pPlanet4, "New Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    	    	pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.NewBajorNanoFX == 1:
@@ -137,24 +149,28 @@ def Initialize(pSet):
                         pSet.AddObjectToSet(pPlanet, "New Bajor 1")
 
                         pPlanet.PlaceObjectByName("Planet1")
+	    	    	pPlanet.SetAtmosphereRadius(0.01)
                         pPlanet.UpdateNodeOnly()
 
                         pPlanet2 = App.Planet_Create(80.0, "data/Models/Environment/DS9FX/LowestRes/NewBajor.nif")
                         pSet.AddObjectToSet(pPlanet2, "New Bajor Colony")
 
                         pPlanet2.PlaceObjectByName("Planet2")
+	    	    	pPlanet2.SetAtmosphereRadius(0.01)
                         pPlanet2.UpdateNodeOnly()
 
                         pPlanet3 = App.Planet_Create(110.0, "data/Models/Environment/DS9FX/LowestRes/Planet004.nif")
                         pSet.AddObjectToSet(pPlanet3, "New Bajor 3")
 
                         pPlanet3.PlaceObjectByName("Planet3")
+	    	    	pPlanet3.SetAtmosphereRadius(0.01)
                         pPlanet3.UpdateNodeOnly()
 
                         pPlanet4 = App.Planet_Create(275.0, "data/Models/Environment/DS9FX/LowestRes/Gamma1High.nif")
                         pSet.AddObjectToSet(pPlanet4, "New Bajor 4")
 
                         pPlanet4.PlaceObjectByName("Planet4")
+	    	    	pPlanet4.SetAtmosphereRadius(0.01)
                         pPlanet4.UpdateNodeOnly()
 
                         if DS9FXSavedConfig.NewBajorNanoFX == 1:

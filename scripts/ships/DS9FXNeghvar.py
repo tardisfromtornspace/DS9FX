@@ -4,12 +4,12 @@ import Multiplayer.SpeciesToShip
 
 def GetShipStats():
 	kShipStats = {
-		"FilenameHigh": "data/Models/Ships/DS9FX/Neghvar/neghvar.nif",
-		"FilenameMed": "data/Models/Ships/DS9FX/Neghvar/neghvarMed.nif",
-		"FilenameLow": "data/Models/Ships/DS9FX/Neghvar/neghvarLow.nif",
+		"FilenameHigh": "data/Models/Ships/DS9FX/Neghvar/Neghvar.nif",
+		"FilenameMed": "data/Models/Ships/DS9FX/Neghvar/Neghvar.nif",
+		"FilenameLow": "data/Models/ships/DS9FX/Neghvar/Neghvar.nif",
 		"Name": "DS9FXNeghvar",
 		"HardpointFile": "DS9FXNeghvar",
-		"Species": Multiplayer.SpeciesToShip.AMBASSADOR
+		"Species": Multiplayer.SpeciesToShip.VORCHA
 	}
 	return kShipStats
 

@@ -5,8 +5,8 @@ import Multiplayer.SpeciesToShip
 def GetShipStats():
 	kShipStats = {
 		"FilenameHigh": "data/Models/Ships/DS9FX/Lakota/Lakota.nif",
-		"FilenameMed": "data/Models/Ships/DS9FX/Lakota/LakotaMed.nif",
-		"FilenameLow": "data/Models/ships/DS9FX/Lakota/LakotaLow.nif",
+		"FilenameMed": "data/Models/Ships/DS9FX/Lakota/Lakota.nif",
+		"FilenameLow": "data/Models/ships/DS9FX/Lakota/Lakota.nif",
 		"Name": "DS9FXLakota",
 		"HardpointFile": "DS9FXLakota",
 		"Species": Multiplayer.SpeciesToShip.AMBASSADOR
@@ -22,7 +22,7 @@ def LoadModel(bPreLoad = 0):
 		# Surface Damage Res, Internal Damage Res, Burn Value, Hole Value,
 		# Search String for Glow, Search string for Specular, Suffix for specular
 		pLODModel = App.g_kLODModelManager.Create(pStats["Name"])
-		pLODModel.AddLOD(pStats["FilenameHigh"], 10, 200.0, 15.0, 15.0, 400, 900, "_glow", None, "_specular")
+		pLODModel.AddLOD(pStats["FilenameHigh"], 10, 200.0, 15.0, 15.0, 400, 900, "_glow", None, "-specular")
 		pLODModel.AddLOD(pStats["FilenameMed"],  10, 400.0, 15.0, 15.0, 400, 900, "_glow", None, "_specular")
 		pLODModel.AddLOD(pStats["FilenameLow"],  10, 800.0, 15.0, 30.0, 400, 900, "_glow", None, None)
 

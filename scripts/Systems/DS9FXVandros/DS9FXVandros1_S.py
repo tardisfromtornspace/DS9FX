@@ -25,24 +25,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Vandros I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/HighRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Vandros II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/HighRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet3, "Vandros III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/HighRes/VandrosIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Vandros IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.VandrosNanoFX == 1:
@@ -61,24 +65,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Vandros I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/StandardRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Vandros II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/StandardRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet3, "Vandros III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/StandardRes/VandrosIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Vandros IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.VandrosNanoFX == 1:
@@ -97,24 +105,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Vandros I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/LowRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Vandros II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet3, "Vandros III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/LowRes/VandrosIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Vandros IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.VandrosNanoFX == 1:
@@ -133,24 +145,28 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Vandros I")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(70.0, "data/Models/Environment/DS9FX/LowestRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Vandros II")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(100.0, "data/Models/Environment/DS9FX/LowestRes/Planet003.nif")
                     pSet.AddObjectToSet(pPlanet3, "Vandros III")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet4 = App.Planet_Create(90.0, "data/Models/Environment/DS9FX/LowestRes/VandrosIV.nif")
                     pSet.AddObjectToSet(pPlanet4, "Vandros IV")
 
                     pPlanet4.PlaceObjectByName("Planet4")
+	    	    pPlanet4.SetAtmosphereRadius(0.01)
                     pPlanet4.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.VandrosNanoFX == 1:

@@ -2,7 +2,7 @@ import App
 import Multiplayer.SpeciesToShip
 
 def GetShipStats():
-    kShipStats = {'FilenameHigh': 'data/Models/Ships/DS9FX/Centaur/Centaur.NIF', 'FilenameMed': 'data/Models/Ships/DS9FX/Centaur/CentaurMed.NIF', 'FilenameLow': 'data/Models/ships/DS9FX/Centaur/CentaurLow.NIF', 'Name': 'DS9FXCentaur', 'HardpointFile': 'DS9FXCentaur', 'Species': Multiplayer.SpeciesToShip.SOVEREIGN}
+    kShipStats = {'FilenameHigh': 'data/Models/Ships/DS9FX/Centaur/Centaur.NIF', 'FilenameMed': 'data/Models/Ships/DS9FX/Centaur/Centaur.NIF', 'FilenameLow': 'data/Models/ships/DS9FX/Centaur/Centaur.NIF', 'Name': 'DS9FXCentaur', 'HardpointFile': 'DS9FXCentaur', 'Species': Multiplayer.SpeciesToShip.SOVEREIGN}
     return kShipStats
 
 

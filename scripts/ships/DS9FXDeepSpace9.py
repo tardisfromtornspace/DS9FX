@@ -3,14 +3,14 @@ import Multiplayer.SpeciesToShip
 
 def GetShipStats():
 	kShipStats = {
-		"FilenameHigh": "data/Models/Bases/CardStarbase/CardStarbase.nif",
-		"FilenameMed": "data/Models/Bases/CardStarbase/CardStarbaseMed.nif",
-		"FilenameLow": "data/Models/Bases/CardStarbase/CardStarbaseLow.nif",
+		"FilenameHigh": "data/Models/Bases/DeepSpace9/DeepSpace9.nif",
+		"FilenameMed": "data/Models/Bases/DeepSpace9/DeepSpace9.nif",
+		"FilenameLow": "data/Models/Bases/DeepSpace9/DeepSpace9.nif",
 		"Name": "DS9FXDeepSpace9",
 		"HardpointFile": "DS9FXDeepSpace9",
 		"Species": Multiplayer.SpeciesToShip.CARDSTARBASE,
-		"DamageRadMod" : 8.0,
-		"DamageStrMod" : 0.125
+		"DamageRadMod" : 1.0,
+		"DamageStrMod" : 0.2
 	}
 	return kShipStats
 
@@ -23,9 +23,9 @@ def LoadModel(bPreLoad = 0):
 		# Surface Damage Res, Internal Damage Res, Burn Value, Hole Value,
 		# Search String for Glow, Search string for Specular, Suffix for specular
 		pLODModel = App.g_kLODModelManager.Create(pStats["Name"])
-		pLODModel.AddLOD(pStats["FilenameHigh"], 10,   400.0, 85.0,  85.0, 400, 900, "_glow", None, "_specular")
-		pLODModel.AddLOD(pStats["FilenameMed"],  10,  1000.0, 85.0,  85.0, 400, 900, "_glow", None, "_specular")
-		pLODModel.AddLOD(pStats["FilenameLow"],  10, 10000.0, 85.0, 100.0, 400, 900, "_glow", None, None)
+		pLODModel.AddLOD(pStats["FilenameHigh"], 10,   400.0, 85.0,  85.0, 400, 900, "_Glow", None, "_specular")
+		pLODModel.AddLOD(pStats["FilenameMed"],  10,  1000.0, 85.0,  85.0, 400, 900, "_Glow", None, "_specular")
+		pLODModel.AddLOD(pStats["FilenameLow"],  10, 10000.0, 85.0, 100.0, 400, 900, "_Glow", None, None)
 		pLODModel.SetTextureSharePath("data/Models/SharedTextures/DS9")
 
 #		kDebugObj = App.CPyDebug()

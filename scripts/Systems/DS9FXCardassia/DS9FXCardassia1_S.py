@@ -26,48 +26,56 @@ def Initialize(pSet):
             pSet.AddObjectToSet(pCardassia1, "Cardassia 1")
 
             pCardassia1.PlaceObjectByName( "Cardassia 1" )
+	    pCardassia1.SetAtmosphereRadius(0.01)
             pCardassia1.UpdateNodeOnly()
 
             pCardassia2 = App.Planet_Create(100.0, "data/models/environment/DS9FX/HighRes/Cardassia2.nif")
             pSet.AddObjectToSet(pCardassia2, "Cardassia 2")
 
             pCardassia2.PlaceObjectByName( "Cardassia 2" )
+	    pCardassia2.SetAtmosphereRadius(0.01)
             pCardassia2.UpdateNodeOnly()
 
             pCardassia3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/HighRes/Cardassia3.nif")
             pSet.AddObjectToSet(pCardassia3, "Cardassia 3")
 
             pCardassia3.PlaceObjectByName( "Cardassia 3" )
+	    pCardassia3.SetAtmosphereRadius(0.01)
             pCardassia3.UpdateNodeOnly()
 
-            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/HighRes/Cardassia6.nif")
+            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/HighRes/Cardassia4.nif")
             pSet.AddObjectToSet(pCardassia4, "Cardassia 4")
 
             pCardassia4.PlaceObjectByName( "Cardassia 4" )
+	    pCardassia4.SetAtmosphereRadius(0.01)
             pCardassia4.UpdateNodeOnly()
 
             pCardassia5 = App.Planet_Create(110.0, "data/models/environment/DS9FX/HighRes/Cardassia5.nif")
             pSet.AddObjectToSet(pCardassia5, "Cardassia 5")
 
             pCardassia5.PlaceObjectByName( "Cardassia 5" )
+	    pCardassia5.SetAtmosphereRadius(0.01)
             pCardassia5.UpdateNodeOnly()
 
-            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/HighRes/Cardassia3.nif")
+            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/HighRes/Cardassia6.nif")
             pSet.AddObjectToSet(pCardassia6, "Cardassia Prime")
 
             pCardassia6.PlaceObjectByName( "Cardassia 6" )
+	    pCardassia6.SetAtmosphereRadius(0.01)
             pCardassia6.UpdateNodeOnly()
 
             pCardassia7 = App.Planet_Create(95.0, "data/models/environment/DS9FX/HighRes/Cardassia7.nif")
             pSet.AddObjectToSet(pCardassia7, "Cardassia 7")
 
             pCardassia7.PlaceObjectByName( "Cardassia 7" )
+	    pCardassia7.SetAtmosphereRadius(0.01)
             pCardassia7.UpdateNodeOnly()
 
             pCardassia8 = App.Planet_Create(200.0, "data/models/environment/DS9FX/HighRes/Cardassia8.nif")
             pSet.AddObjectToSet(pCardassia8, "Cardassia 8")
 
             pCardassia8.PlaceObjectByName( "Cardassia 8" )
+	    pCardassia8.SetAtmosphereRadius(0.01)
             pCardassia8.UpdateNodeOnly()
 
             if DS9FXSavedConfig.CardassiaNanoFX == 1:
@@ -75,10 +83,10 @@ def Initialize(pSet):
                     import Custom.NanoFXv2.NanoFX_Lib
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia1, "data/Models/Environment/DS9FX/HighRes/Cardassia1.nif", "Class-K")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia2, "data/Models/Environment/DS9FX/HighRes/Cardassia2.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/HighRes/Cardassia6.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/HighRes/Cardassia3.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia4, "data/Models/Environment/DS9FX/HighRes/Cardassia4.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia5, "data/Models/Environment/DS9FX/HighRes/Cardassia5.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/HighRes/Cardassia3.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/HighRes/Cardassia6.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia7, "data/Models/Environment/DS9FX/HighRes/Cardassia7.nif", "Class-H")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia8, "data/Models/Environment/DS9FX/HighRes/Cardassia8.nif", "Class-O")
                 except:
@@ -90,48 +98,56 @@ def Initialize(pSet):
             pSet.AddObjectToSet(pCardassia1, "Cardassia 1")
 
             pCardassia1.PlaceObjectByName( "Cardassia 1" )
+	    pCardassia1.SetAtmosphereRadius(0.01)
             pCardassia1.UpdateNodeOnly()
 
             pCardassia2 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia2.nif")
             pSet.AddObjectToSet(pCardassia2, "Cardassia 2")
 
             pCardassia2.PlaceObjectByName( "Cardassia 2" )
+	    pCardassia2.SetAtmosphereRadius(0.01)
             pCardassia2.UpdateNodeOnly()
 
             pCardassia3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/StandardRes/Cardassia3.nif")
             pSet.AddObjectToSet(pCardassia3, "Cardassia 3")
 
             pCardassia3.PlaceObjectByName( "Cardassia 3" )
+	    pCardassia3.SetAtmosphereRadius(0.01)
             pCardassia3.UpdateNodeOnly()
 
-            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia6.nif")
+            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia4.nif")
             pSet.AddObjectToSet(pCardassia4, "Cardassia 4")
 
             pCardassia4.PlaceObjectByName( "Cardassia 4" )
+	    pCardassia4.SetAtmosphereRadius(0.01)
             pCardassia4.UpdateNodeOnly()
 
             pCardassia5 = App.Planet_Create(110.0, "data/models/environment/DS9FX/StandardRes/Cardassia5.nif")
             pSet.AddObjectToSet(pCardassia5, "Cardassia 5")
 
             pCardassia5.PlaceObjectByName( "Cardassia 5" )
+	    pCardassia5.SetAtmosphereRadius(0.01)
             pCardassia5.UpdateNodeOnly()
 
-            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/StandardRes/Cardassia3.nif")
+            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/StandardRes/Cardassia6.nif")
             pSet.AddObjectToSet(pCardassia6, "Cardassia Prime")
 
             pCardassia6.PlaceObjectByName( "Cardassia 6" )
+	    pCardassia6.SetAtmosphereRadius(0.01)
             pCardassia6.UpdateNodeOnly()
 
             pCardassia7 = App.Planet_Create(95.0, "data/models/environment/DS9FX/StandardRes/Cardassia7.nif")
             pSet.AddObjectToSet(pCardassia7, "Cardassia 7")
 
             pCardassia7.PlaceObjectByName( "Cardassia 7" )
+	    pCardassia7.SetAtmosphereRadius(0.01)
             pCardassia7.UpdateNodeOnly()
 
             pCardassia8 = App.Planet_Create(200.0, "data/models/environment/DS9FX/StandardRes/Cardassia8.nif")
             pSet.AddObjectToSet(pCardassia8, "Cardassia 8")
 
             pCardassia8.PlaceObjectByName( "Cardassia 8" )
+	    pCardassia8.SetAtmosphereRadius(0.01)
             pCardassia8.UpdateNodeOnly()
 
             if DS9FXSavedConfig.CardassiaNanoFX == 1:
@@ -139,10 +155,10 @@ def Initialize(pSet):
                     import Custom.NanoFXv2.NanoFX_Lib
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia1, "data/Models/Environment/DS9FX/StandardRes/Cardassia1.nif", "Class-K")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia2, "data/Models/Environment/DS9FX/StandardRes/Cardassia2.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/StandardRes/Cardassia6.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/StandardRes/Cardassia3.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia4, "data/Models/Environment/DS9FX/StandardRes/Cardassia4.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia5, "data/Models/Environment/DS9FX/StandardRes/Cardassia5.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/StandardRes/Cardassia3.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/StandardRes/Cardassia6.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia7, "data/Models/Environment/DS9FX/StandardRes/Cardassia7.nif", "Class-H")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia8, "data/Models/Environment/DS9FX/StandardRes/Cardassia8.nif", "Class-O")
                 except:
@@ -154,48 +170,56 @@ def Initialize(pSet):
             pSet.AddObjectToSet(pCardassia1, "Cardassia 1")
 
             pCardassia1.PlaceObjectByName( "Cardassia 1" )
+	    pCardassia1.SetAtmosphereRadius(0.01)
             pCardassia1.UpdateNodeOnly()
 
             pCardassia2 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia2.nif")
             pSet.AddObjectToSet(pCardassia2, "Cardassia 2")
 
             pCardassia2.PlaceObjectByName( "Cardassia 2" )
+	    pCardassia2.SetAtmosphereRadius(0.01)
             pCardassia2.UpdateNodeOnly()
 
             pCardassia3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/StandardRes/Cardassia3.nif")
             pSet.AddObjectToSet(pCardassia3, "Cardassia 3")
 
             pCardassia3.PlaceObjectByName( "Cardassia 3" )
+	    pCardassia3.SetAtmosphereRadius(0.01)
             pCardassia3.UpdateNodeOnly()
 
-            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia6.nif")
+            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia4.nif")
             pSet.AddObjectToSet(pCardassia4, "Cardassia 4")
 
             pCardassia4.PlaceObjectByName( "Cardassia 4" )
+	    pCardassia4.SetAtmosphereRadius(0.01)
             pCardassia4.UpdateNodeOnly()
 
             pCardassia5 = App.Planet_Create(110.0, "data/models/environment/DS9FX/StandardRes/Cardassia5.nif")
             pSet.AddObjectToSet(pCardassia5, "Cardassia 5")
 
             pCardassia5.PlaceObjectByName( "Cardassia 5" )
+	    pCardassia5.SetAtmosphereRadius(0.01)
             pCardassia5.UpdateNodeOnly()
 
-            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/StandardRes/Cardassia3.nif")
+            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/StandardRes/Cardassia6.nif")
             pSet.AddObjectToSet(pCardassia6, "Cardassia Prime")
 
             pCardassia6.PlaceObjectByName( "Cardassia 6" )
+	    pCardassia6.SetAtmosphereRadius(0.01)
             pCardassia6.UpdateNodeOnly()
 
             pCardassia7 = App.Planet_Create(95.0, "data/models/environment/DS9FX/StandardRes/Cardassia7.nif")
             pSet.AddObjectToSet(pCardassia7, "Cardassia 7")
 
             pCardassia7.PlaceObjectByName( "Cardassia 7" )
+	    pCardassia7.SetAtmosphereRadius(0.01)
             pCardassia7.UpdateNodeOnly()
 
             pCardassia8 = App.Planet_Create(200.0, "data/models/environment/DS9FX/StandardRes/Cardassia8.nif")
             pSet.AddObjectToSet(pCardassia8, "Cardassia 8")
 
             pCardassia8.PlaceObjectByName( "Cardassia 8" )
+	    pCardassia8.SetAtmosphereRadius(0.01)
             pCardassia8.UpdateNodeOnly()
 
             if DS9FXSavedConfig.CardassiaNanoFX == 1:
@@ -203,10 +227,10 @@ def Initialize(pSet):
                     import Custom.NanoFXv2.NanoFX_Lib
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia1, "data/Models/Environment/DS9FX/StandardRes/Cardassia1.nif", "Class-K")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia2, "data/Models/Environment/DS9FX/StandardRes/Cardassia2.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/StandardRes/Cardassia6.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/StandardRes/Cardassia3.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia4, "data/Models/Environment/DS9FX/StandardRes/Cardassia4.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia5, "data/Models/Environment/DS9FX/StandardRes/Cardassia5.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/StandardRes/Cardassia3.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/StandardRes/Cardassia6.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia7, "data/Models/Environment/DS9FX/StandardRes/Cardassia7.nif", "Class-H")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia8, "data/Models/Environment/DS9FX/StandardRes/Cardassia8.nif", "Class-O")
                 except:
@@ -218,48 +242,56 @@ def Initialize(pSet):
             pSet.AddObjectToSet(pCardassia1, "Cardassia 1")
 
             pCardassia1.PlaceObjectByName( "Cardassia 1" )
+	    pCardassia1.SetAtmosphereRadius(0.01)
             pCardassia1.UpdateNodeOnly()
 
             pCardassia2 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia2.nif")
             pSet.AddObjectToSet(pCardassia2, "Cardassia 2")
 
             pCardassia2.PlaceObjectByName( "Cardassia 2" )
+	    pCardassia2.SetAtmosphereRadius(0.01)
             pCardassia2.UpdateNodeOnly()
 
             pCardassia3 = App.Planet_Create(120.0, "data/models/environment/DS9FX/StandardRes/Cardassia3.nif")
             pSet.AddObjectToSet(pCardassia3, "Cardassia 3")
 
             pCardassia3.PlaceObjectByName( "Cardassia 3" )
+	    pCardassia3.SetAtmosphereRadius(0.01)
             pCardassia3.UpdateNodeOnly()
 
-            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia6.nif")
+            pCardassia4 = App.Planet_Create(100.0, "data/models/environment/DS9FX/StandardRes/Cardassia4.nif")
             pSet.AddObjectToSet(pCardassia4, "Cardassia 4")
 
             pCardassia4.PlaceObjectByName( "Cardassia 4" )
+	    pCardassia4.SetAtmosphereRadius(0.01)
             pCardassia4.UpdateNodeOnly()
 
             pCardassia5 = App.Planet_Create(110.0, "data/models/environment/DS9FX/StandardRes/Cardassia5.nif")
             pSet.AddObjectToSet(pCardassia5, "Cardassia 5")
 
             pCardassia5.PlaceObjectByName( "Cardassia 5" )
+	    pCardassia5.SetAtmosphereRadius(0.01)
             pCardassia5.UpdateNodeOnly()
 
-            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/StandardRes/Cardassia3.nif")
+            pCardassia6 = App.Planet_Create(75.0, "data/models/environment/DS9FX/StandardRes/Cardassia6.nif")
             pSet.AddObjectToSet(pCardassia6, "Cardassia Prime")
 
             pCardassia6.PlaceObjectByName( "Cardassia 6" )
+	    pCardassia6.SetAtmosphereRadius(0.01)
             pCardassia6.UpdateNodeOnly()
 
             pCardassia7 = App.Planet_Create(95.0, "data/models/environment/DS9FX/StandardRes/Cardassia7.nif")
             pSet.AddObjectToSet(pCardassia7, "Cardassia 7")
 
             pCardassia7.PlaceObjectByName( "Cardassia 7" )
+	    pCardassia7.SetAtmosphereRadius(0.01)
             pCardassia7.UpdateNodeOnly()
 
             pCardassia8 = App.Planet_Create(200.0, "data/models/environment/DS9FX/StandardRes/Cardassia8.nif")
             pSet.AddObjectToSet(pCardassia8, "Cardassia 8")
 
             pCardassia8.PlaceObjectByName( "Cardassia 8" )
+	    pCardassia8.SetAtmosphereRadius(0.01)
             pCardassia8.UpdateNodeOnly()
 
             if DS9FXSavedConfig.CardassiaNanoFX == 1:
@@ -267,10 +299,10 @@ def Initialize(pSet):
                     import Custom.NanoFXv2.NanoFX_Lib
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia1, "data/Models/Environment/DS9FX/StandardRes/Cardassia1.nif", "Class-K")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia2, "data/Models/Environment/DS9FX/StandardRes/Cardassia2.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/StandardRes/Cardassia6.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia3, "data/Models/Environment/DS9FX/StandardRes/Cardassia3.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia4, "data/Models/Environment/DS9FX/StandardRes/Cardassia4.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia5, "data/Models/Environment/DS9FX/StandardRes/Cardassia5.nif", "Class-M")
-                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/StandardRes/Cardassia3.nif", "Class-M")
+                    Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia6, "data/Models/Environment/DS9FX/StandardRes/Cardassia6.nif", "Class-M")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia7, "data/Models/Environment/DS9FX/StandardRes/Cardassia7.nif", "Class-H")
                     Custom.NanoFXv2.NanoFX_Lib.CreateAtmosphereFX(pCardassia8, "data/Models/Environment/DS9FX/StandardRes/Cardassia8.nif", "Class-O")
                 except:

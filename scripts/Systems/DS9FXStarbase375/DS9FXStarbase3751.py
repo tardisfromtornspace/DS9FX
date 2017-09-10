@@ -42,61 +42,19 @@ def Terminate():
         App.g_kSetManager.DeleteSet("DS9FXStarbase3751")
 
 def LoadPlacements(sSetName):
-        # Light position "Ambient Light"
-        kThis = App.LightPlacement_Create("Ambient Light", sSetName, None)
-        kThis.SetStatic(1)
-        kThis.SetTranslateXYZ(0.000000, 0.000000, 0.000000)
-        kForward = App.TGPoint3()
-        kForward.SetXYZ(0.000000, 1.000000, 0.000000)
-        kUp = App.TGPoint3()
-        kUp.SetXYZ(0.000000, 0.000000, 1.000000)
-        kThis.AlignToVectors(kForward, kUp)
-        kThis.ConfigAmbientLight(0.643137, 0.843137, 0.956863, 0.274510)
-        kThis.Update(0)
-        kThis = None
-        # End position "Ambient Light"
-
-        # Light position "Directional Light"
-        kThis = App.LightPlacement_Create("Directional Light", sSetName, None)
-        kThis.SetStatic(1)
-        kThis.SetTranslateXYZ(-4200.000000, -360000.000000, -3000.000000)
-        kForward = App.TGPoint3()
-        kForward.SetXYZ(0.076971, 0.995795, 0.049676)
-        kUp = App.TGPoint3()
-        kUp.SetXYZ(0.006766, -0.050345, 0.998709)
-        kThis.AlignToVectors(kForward, kUp)
-        kThis.ConfigDirectionalLight(0.764706, 0.949020, 1.000000, 1.000000)
-        kThis.Update(0)
-        kThis = None
-        # End position "Directional Light"
-
-        # Position "Sun"
-        kThis = App.Waypoint_Create("Sun", sSetName, None)
-        kThis.SetStatic(1)
-        kThis.SetTranslateXYZ(-4200.000000, -360000.000000, -3000.000000)
-        kForward = App.TGPoint3()
-        kForward.SetXYZ(0.000000, 1.000000, 0.000000)
-        kUp = App.TGPoint3()
-        kUp.SetXYZ(0.000000, 0.000000, 1.000000)
-        kThis.AlignToVectors(kForward, kUp)
-        kThis.SetSpeed(25.000000)
-        kThis.Update(0)
-        kThis = None
-        # End position "Sun"
-
-        # Position "SunStr"
-        kThis = App.Waypoint_Create("SunStr", sSetName, None)
-        kThis.SetStatic(1)
-        kThis.SetTranslateXYZ(-4200.000000, -370000.000000, -3000.000000)
-        kForward = App.TGPoint3()
-        kForward.SetXYZ(0.000000, 1.000000, 0.000000)
-        kUp = App.TGPoint3()
-        kUp.SetXYZ(0.000000, 0.000000, 1.000000)
-        kThis.AlignToVectors(kForward, kUp)
-        kThis.SetSpeed(25.000000)
-        kThis.Update(0)
-        kThis = None
-        # End position "SunStr"
+	# Light position "Ambient Light"
+	kThis = App.LightPlacement_Create("Ambient Light", sSetName, None)
+	kThis.SetStatic(1)
+	kThis.SetTranslateXYZ(0.000000, 0.000000, 0.000000)
+	kForward = App.TGPoint3()
+	kForward.SetXYZ(0.000000, 1.000000, 0.000000)
+	kUp = App.TGPoint3()
+	kUp.SetXYZ(0.000000, 0.000000, 1.000000)
+	kThis.AlignToVectors(kForward, kUp)
+	kThis.ConfigAmbientLight(1.000000, 1.000000, 1.000000, 0.3)
+	kThis.Update(0)
+	kThis = None
+	# End position "Ambient Light"
 
         # Position "Player Start"
         kThis = App.Waypoint_Create("Player Start", sSetName, None)

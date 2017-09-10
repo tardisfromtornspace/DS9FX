@@ -25,18 +25,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet3, "Dosi 1")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(105.0, "data/Models/Environment/DS9FX/HighRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Dosi 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet = App.Planet_Create(65.0, "data/Models/Environment/DS9FX/HighRes/Dosi.nif")
                     pSet.AddObjectToSet(pPlanet, "Dosi Homeworld")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.DosiNanoFX == 1:
@@ -54,18 +57,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet3, "Dosi 1")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(105.0, "data/Models/Environment/DS9FX/StandardRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Dosi 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet = App.Planet_Create(65.0, "data/Models/Environment/DS9FX/StandardRes/Dosi.nif")
                     pSet.AddObjectToSet(pPlanet, "Dosi Homeworld")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.DosiNanoFX == 1:
@@ -83,18 +89,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet3, "Dosi 1")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(105.0, "data/Models/Environment/DS9FX/LowRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Dosi 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet = App.Planet_Create(65.0, "data/Models/Environment/DS9FX/LowRes/Dosi.nif")
                     pSet.AddObjectToSet(pPlanet, "Dosi Homeworld")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.DosiNanoFX == 1:
@@ -112,18 +121,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet3, "Dosi 1")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(105.0, "data/Models/Environment/DS9FX/LowestRes/Planet001.nif")
                     pSet.AddObjectToSet(pPlanet2, "Dosi 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet = App.Planet_Create(65.0, "data/Models/Environment/DS9FX/LowestRes/Dosi.nif")
                     pSet.AddObjectToSet(pPlanet, "Dosi Homeworld")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.DosiNanoFX == 1:

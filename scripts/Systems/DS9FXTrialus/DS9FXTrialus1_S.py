@@ -25,6 +25,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Meridian")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TrialusNanoFX == 1:
@@ -40,6 +41,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Meridian")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TrialusNanoFX == 1:
@@ -55,6 +57,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Meridian")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TrialusNanoFX == 1:
@@ -70,6 +73,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Meridian")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TrialusNanoFX == 1:

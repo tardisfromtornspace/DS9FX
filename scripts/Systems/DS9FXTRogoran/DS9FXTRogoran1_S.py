@@ -25,18 +25,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "T-Rogoran 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/HighRes/bajor1High.nif")
                     pSet.AddObjectToSet(pPlanet2, "T-Rogoran 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/HighRes/T-Rogoran.nif")
                     pSet.AddObjectToSet(pPlanet3, "T-Rogoran Homeworld")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TRogoranNanoFX == 1:
@@ -54,18 +57,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "T-Rogoran 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/StandardRes/bajor1High.nif")
                     pSet.AddObjectToSet(pPlanet2, "T-Rogoran 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/StandardRes/T-Rogoran.nif")
                     pSet.AddObjectToSet(pPlanet3, "T-Rogoran Homeworld")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TRogoranNanoFX == 1:
@@ -83,18 +89,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "T-Rogoran 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/LowRes/bajor1High.nif")
                     pSet.AddObjectToSet(pPlanet2, "T-Rogoran 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/LowRes/T-Rogoran.nif")
                     pSet.AddObjectToSet(pPlanet3, "T-Rogoran Homeworld")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TRogoranNanoFX == 1:
@@ -112,18 +121,21 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "T-Rogoran 1")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     pPlanet2 = App.Planet_Create(120.0, "data/Models/Environment/DS9FX/LowestRes/bajor1High.nif")
                     pSet.AddObjectToSet(pPlanet2, "T-Rogoran 2")
 
                     pPlanet2.PlaceObjectByName("Planet2")
+	    	    pPlanet2.SetAtmosphereRadius(0.01)
                     pPlanet2.UpdateNodeOnly()
 
                     pPlanet3 = App.Planet_Create(75.0, "data/Models/Environment/DS9FX/LowestRes/T-Rogoran.nif")
                     pSet.AddObjectToSet(pPlanet3, "T-Rogoran Homeworld")
 
                     pPlanet3.PlaceObjectByName("Planet3")
+	    	    pPlanet3.SetAtmosphereRadius(0.01)
                     pPlanet3.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.TRogoranNanoFX == 1:

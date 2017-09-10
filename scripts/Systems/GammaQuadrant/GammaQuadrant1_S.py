@@ -49,6 +49,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Idran")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GammaNanoFX == 1:
@@ -68,6 +69,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Idran")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GammaNanoFX == 1:
@@ -87,6 +89,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Idran")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GammaNanoFX == 1:
@@ -106,6 +109,7 @@ def Initialize(pSet):
                     pSet.AddObjectToSet(pPlanet, "Idran")
 
                     pPlanet.PlaceObjectByName("Planet1")
+	    	    pPlanet.SetAtmosphereRadius(0.01)
                     pPlanet.UpdateNodeOnly()
 
                     if DS9FXSavedConfig.GammaNanoFX == 1:
