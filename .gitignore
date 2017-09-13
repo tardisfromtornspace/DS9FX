@@ -105,3 +105,4 @@ ENV/
 /sfx
 *.exe.config
 *.Json.xml
+/updater_info.json
