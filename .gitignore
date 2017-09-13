@@ -103,3 +103,5 @@ ENV/
 # Custom DS9FX stuff
 /data
 /sfx
+*.exe.config
+*.Json.xml
