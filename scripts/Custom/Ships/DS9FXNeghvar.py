@@ -3,7 +3,7 @@ import Foundation
 
 abbrev = "DS9FXNeghvar"
 iconName = "DS9FXNeghvar"
-longName = "Negh'Var"
+longName = "Negh'var"
 shipFile = "DS9FXNeghvar"
 species = App.SPECIES_GALAXY
 menuGroup = "DS9FX Ships"

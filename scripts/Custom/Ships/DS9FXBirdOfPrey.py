@@ -4,7 +4,7 @@ import Foundation
 
 abbrev = "DS9FXBirdOfPrey"
 iconName = "DS9FXBirdOfPrey"
-longName = "Bird Of Prey"
+longName = "Bird of Prey"
 shipFile = "DS9FXBirdOfPrey"
 species = App.SPECIES_GALAXY
 menuGroup = "DS9FX Ships"
