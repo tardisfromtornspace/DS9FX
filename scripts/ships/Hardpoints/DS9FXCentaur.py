@@ -1246,6 +1246,34 @@ AftTractor.SetTextureSpeed(0.200000)
 AftTractor.SetTextureName("data/Textures/Tactical/TractorBeam.tga")
 App.g_kModelPropertyManager.RegisterLocalTemplate(AftTractor)
 #################################################
+ShuttleBay = App.HullProperty_Create("Shuttle Bay")
+
+ShuttleBay.SetMaxCondition(4000.000000)
+ShuttleBay.SetCritical(0)
+ShuttleBay.SetTargetable(1)
+ShuttleBay.SetPrimary(0)
+ShuttleBay.SetPosition(0.000000, 1.030000, 0.240000)
+ShuttleBay.SetPosition2D(76.000000, 6.000000)
+ShuttleBay.SetRepairComplexity(3.000000)
+ShuttleBay.SetDisabledPercentage(0.000000)
+ShuttleBay.SetRadius(0.100000)
+App.g_kModelPropertyManager.RegisterLocalTemplate(ShuttleBay)
+#################################################
+ShuttleBayOEP = App.ObjectEmitterProperty_Create("Shuttle Bay OEP")
+
+ShuttleBayOEPForward = App.TGPoint3()
+ShuttleBayOEPForward.SetXYZ(0.000000, 1.000000, 0.000000)
+ShuttleBayOEPUp = App.TGPoint3()
+ShuttleBayOEPUp.SetXYZ(0.000000, 0.000000, 1.000000)
+ShuttleBayOEPRight = App.TGPoint3()
+ShuttleBayOEPRight.SetXYZ(1.000000, 0.000000, 0.000000)
+ShuttleBayOEP.SetOrientation(ShuttleBayOEPForward, ShuttleBayOEPUp, ShuttleBayOEPRight)
+ShuttleBayOEPPosition = App.TGPoint3()
+ShuttleBayOEPPosition.SetXYZ(0.000000, 1.050000, 0.225000)
+ShuttleBayOEP.SetPosition(ShuttleBayOEPPosition)
+ShuttleBayOEP.SetEmittedObjectType(ShuttleBayOEP.OEP_SHUTTLE)
+App.g_kModelPropertyManager.RegisterLocalTemplate(ShuttleBayOEP)
+#################################################
 Centaur = App.ShipProperty_Create("Centaur")
 
 Centaur.SetGenus(1)
@@ -1456,6 +1484,12 @@ def LoadPropertySet(pObj):
 	if (prop != None):
 		pObj.AddToSet("Scene Root", prop)
 	prop = App.g_kModelPropertyManager.FindByName("Aft Tractor", App.TGModelPropertyManager.LOCAL_TEMPLATES)
+	if (prop != None):
+		pObj.AddToSet("Scene Root", prop)
+	prop = App.g_kModelPropertyManager.FindByName("Shuttle Bay", App.TGModelPropertyManager.LOCAL_TEMPLATES)
+	if (prop != None):
+		pObj.AddToSet("Scene Root", prop)
+	prop = App.g_kModelPropertyManager.FindByName("Shuttle Bay OEP", App.TGModelPropertyManager.LOCAL_TEMPLATES)
 	if (prop != None):
 		pObj.AddToSet("Scene Root", prop)
 	prop = App.g_kModelPropertyManager.FindByName("Centaur", App.TGModelPropertyManager.LOCAL_TEMPLATES)

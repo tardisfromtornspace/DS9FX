@@ -201,7 +201,7 @@ Torpedoes = App.TorpedoSystemProperty_Create("Torpedoes")
 
 Torpedoes.SetMaxCondition(2000.000000)
 Torpedoes.SetCritical(0)
-Torpedoes.SetTargetable(1)
+Torpedoes.SetTargetable(0)
 Torpedoes.SetPrimary(1)
 Torpedoes.SetPosition(0.000000, 0.000000, 0.000000)
 Torpedoes.SetPosition2D(0.000000, 0.000000)

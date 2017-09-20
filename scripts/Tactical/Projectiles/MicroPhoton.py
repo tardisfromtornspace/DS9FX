@@ -44,7 +44,7 @@ def GetLaunchSpeed():
 	return(25.0)
 
 def GetLaunchSound():
-	return("Photon Torpedo")
+	return("Micro Photon")
 
 def GetPowerCost():
 	return(10.0)
