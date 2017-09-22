@@ -100,6 +100,8 @@ ENV/
 # mypy
 .mypy_cache/
 
+.idea/
+
 # Custom DS9FX stuff
 /data
 /sfx

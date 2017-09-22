@@ -7,6 +7,7 @@ from Custom.DS9FX.DS9FXEventManager import DS9FXGlobalEvents
 bOverflow = 0
 pTimer = None
 
+
 def Start():
     global pTimer, bOverflow
 
@@ -15,8 +16,10 @@ def Start():
     else:
         return
 
+
 def End():
     PulsarFX.Reset()
+
 
 class PulsarMonitor:
     def __init__(self):
@@ -24,24 +27,27 @@ class PulsarMonitor:
         bOverflow = 1
         self.pTiming = None
         self.pTimer = None
-        self.countdown()  
+        self.countdown()
+
     def countdown(self):
         if not self.pTiming:
             self.pTiming = App.PythonMethodProcess()
             self.pTiming.SetInstance(self)
             self.pTiming.SetFunction("monitor")
             self.pTiming.SetDelay(0.001)
-            self.pTiming.SetPriority(App.TimeSliceProcess.CRITICAL)    
+            self.pTiming.SetPriority(App.TimeSliceProcess.CRITICAL)
             self.pTiming.SetDelayUsesGameTime(1)
         if not self.pTimer:
             self.pTimer = App.PythonMethodProcess()
             self.pTimer.SetInstance(self)
             self.pTimer.SetFunction("damager")
             self.pTimer.SetDelay(15)
-            self.pTimer.SetPriority(App.TimeSliceProcess.LOW)    
-            self.pTimer.SetDelayUsesGameTime(1)            
+            self.pTimer.SetPriority(App.TimeSliceProcess.LOW)
+            self.pTimer.SetDelayUsesGameTime(1)
+
     def monitor(self, fTime):
         PulsarFX.Update()
+
     def damager(self, fTime):
         for k in PulsarFX.dData.keys():
             dSetData = PulsarFX.dData[k]
@@ -72,14 +78,14 @@ class PulsarMonitor:
                 if pObject.IsTypeOf(App.CT_DAMAGEABLE_OBJECT):
                     lDamage.append(pObject.GetObjID())
 
-            pProx.EndObjectIteration(kIter)  
-            
+            pProx.EndObjectIteration(kIter)
+
             self.damage(lDamage, iDamage)
 
     def damage(self, lDamage, iDamage):
         if len(lDamage) == 0:
             return 0
-        
+
         for kShip in lDamage:
             pShip = App.ShipClass_Cast(App.TGObject_GetTGObjectPtr(kShip))
             if not pShip:
@@ -117,13 +123,13 @@ class PulsarMonitor:
                 self.processdamage(pShip, pSys, iDamage)
 
             pList.TGDoneIterating()
-            pList.TGDestroy()   
+            pList.TGDestroy()
 
             pHullConNew = pShip.GetHull().GetCondition()
             iHullDamage = pHullConOld - pHullConNew
             if iHullDamage <= 0:
                 continue
-            DS9FXGlobalEvents.Trigger_Custom_Damage(pShip, iHullDamage)                
+            DS9FXGlobalEvents.Trigger_Custom_Damage(pShip, iHullDamage)
 
     def processshields(self, pShields, iDamage):
         iRnd = int(App.g_kSystemWrapper.GetRandomNumber(iDamage)) + iDamage / 2
@@ -134,7 +140,7 @@ class PulsarMonitor:
                 iVal = 0
             pShields.SetCurShields(pShield, iVal)
 
-    def processdamage(self, pShip, pSys, iDamage):        
+    def processdamage(self, pShip, pSys, iDamage):
         iCur = pSys.GetCondition()
         iRnd = int(App.g_kSystemWrapper.GetRandomNumber(iDamage)) + iDamage / 2
         iVal = iCur - iRnd
@@ -144,4 +150,4 @@ class PulsarMonitor:
                 return 0
             except:
                 iVal = 1
-        pSys.SetCondition(iVal)  
+        pSys.SetCondition(iVal)
