@@ -23,12 +23,12 @@ class ButtonMonitor:
 
     def __countdown(self):
         if not self.timer:
-            self.pTimer = App.PythonMethodProcess()
-            self.pTimer.SetInstance(self)
-            self.pTimer.SetFunction("monitor")
-            self.pTimer.SetDelay(15)
-            self.pTimer.SetPriority(App.TimeSliceProcess.LOW)
-            self.pTimer.SetDelayUsesGameTime(1)
+            self.timer = App.PythonMethodProcess()
+            self.timer.SetInstance(self)
+            self.timer.SetFunction("monitor")
+            self.timer.SetDelay(15)
+            self.timer.SetPriority(App.TimeSliceProcess.LOW)
+            self.timer.SetDelayUsesGameTime(1)
 
     def monitor(self, time):
         if DS9FXSets.IsInSet():
