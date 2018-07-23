@@ -8,7 +8,7 @@ from Custom.DS9FX.DS9FXBadlandsFX import VortexFX
 from Custom.DS9FX.DS9FXGUIHandler import HelmHandler
 from Custom.DS9FX.DS9FXLib import DS9FXMenuLib, DS9FXCleanLeftover, DS9FXCometAlpha, DS9FXDisableEndCombat, \
     DS9FXKillSets, DS9FXMirrorUniverse, DS9FXNebula, DS9FXSets, LogConsole, FixExitGame, FixNanoFXExplosions, \
-    Mvam_Wormhole_Fix, PopulateGroups, StabilizationCode, SetGamePlayerFix, DockButtonMonitor
+    Mvam_Wormhole_Fix, PopulateGroups, StabilizationCode, SetGamePlayerFix, DockButtonMonitor, DisableLocalForces
 from Custom.DS9FX.DS9FXLifeSupport import AIBoarding, CaptureShip, CombatEffectiveness, HandleCustom, HandleDocking, \
     HandleExitGame, HandleLifeSupportDestruction, HandleLifeSupportText, HandleMissions, HandleMVAM, HandleNewShip, \
     HandleShields, HandlePlugins, HandleWeaponHit
@@ -367,7 +367,7 @@ def ManualEntrySetPlayerHandler():
         return
 
     if (pSet.GetName() == "DeepSpace91") or (pSet.GetName() == "GammaQuadrant1") or (
-                pSet.GetName() == "BajoranWormhole1"):
+            pSet.GetName() == "BajoranWormhole1"):
         StartManualEntryHandler()
 
 
@@ -432,31 +432,33 @@ def StopForcingMissionPlayingHandling(pObject, pEvent):
 
 # ET_START_DS9FX_MISSION related
 def StartDS9FXMissionHandling(pObject, pEvent):
-    HandleDS9FXMission(var="Start")
+    HandleDS9FXMission(eventType="Start")
     HandleMissions.MissionName(pObject, pEvent)
     MissionStatus.Setup(pObject, pEvent)
     DS9FXMirrorUniverse.InMission(1)
 
 
-def HandleDS9FXMission(var=None):
-    if var is None:
+def HandleDS9FXMission(eventType=None):
+    if eventType is None:
         return
 
     reload(DS9FXSavedConfig)
     if not DS9FXSavedConfig.KillRandomFleetsDuringMission == 1:
         return
 
-    if var == "Start":
+    if eventType == "Start":
         Custom.DS9FX.DS9FXmain.DeleteRandomAttackTimer(None, None)
-    elif var == "End":
+        DisableLocalForces.DisableForces()
+    elif eventType == "End":
         Custom.DS9FX.DS9FXmain.HandleRandomAttackTimer()
+        DisableLocalForces.EnableForces()
     else:
         return
 
 
 # ET_END_DS9FX_MISSION related
 def EndDS9FXMissionHandling(pObject, pEvent):
-    HandleDS9FXMission(var="End")
+    HandleDS9FXMission(eventType="End")
     HandleMissions.ResetMission()
     MissionStatus.Reset()
     DS9FXMirrorUniverse.InMission(0)
