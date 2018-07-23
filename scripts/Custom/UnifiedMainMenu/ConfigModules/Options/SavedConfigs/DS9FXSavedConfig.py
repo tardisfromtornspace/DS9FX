@@ -154,3 +154,4 @@ Starbase375Centaur = 1
 Starbase375Starbase = 1
 Starbase375Music = 3
 MaxRandShips = 1
+DisableLocalForces = 0

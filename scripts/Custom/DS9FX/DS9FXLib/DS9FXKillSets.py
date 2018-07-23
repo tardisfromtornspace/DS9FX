@@ -63,7 +63,6 @@ def DisallowSetKilling():
     global bDeleteSets
     bDeleteSets = 0
 
-    # Using timers when a new QB Mission is loading causes event "mixings", so better use sequence which doesn't cause any errors
     pSequence = App.TGSequence_Create()
     pAction = App.TGScriptAction_Create(__name__, "AllowSetKilling")
     pSequence.AddAction(pAction, None, 10)
