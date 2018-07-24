@@ -2984,14 +2984,16 @@ def HandleResolutionForUI(window):
     mode = App.GraphicsModeInfo_GetCurrentMode()
 
     x = 0.25
+    y = 0.25
     if mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_640x480 or \
             mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_800x600 or \
             mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_1024x768 or \
             mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_1280x1024:
         x = 0.17
+        y = 0.15
 
     pTCW = App.TacticalControlWindow_GetTacticalControlWindow()
-    pTCW.AddChild(window, x, x)
+    pTCW.AddChild(window, x, y)
 
 
 def CreateWindow(pObject, pEvent):
