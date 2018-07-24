@@ -432,33 +432,40 @@ def StopForcingMissionPlayingHandling(pObject, pEvent):
 
 # ET_START_DS9FX_MISSION related
 def StartDS9FXMissionHandling(pObject, pEvent):
-    HandleDS9FXMission(eventType="Start")
+    HandleDS9FXMission(eventType="Start", pEvent=pEvent)
     HandleMissions.MissionName(pObject, pEvent)
     MissionStatus.Setup(pObject, pEvent)
     DS9FXMirrorUniverse.InMission(1)
 
 
-def HandleDS9FXMission(eventType=None):
-    if eventType is None:
+def HandleDS9FXMission(eventType=None, pEvent=None):
+    if eventType is None or pEvent is None:
         return
+
+    missionName = ""
+
+    try:
+        missionName = pEvent.GetCString()
+    except:
+        pass
 
     reload(DS9FXSavedConfig)
-    if not DS9FXSavedConfig.KillRandomFleetsDuringMission == 1:
-        return
 
     if eventType == "Start":
-        Custom.DS9FX.DS9FXmain.DeleteRandomAttackTimer(None, None)
-        DisableLocalForces.DisableForces()
+        if DS9FXSavedConfig.KillRandomFleetsDuringMission == 1:
+            Custom.DS9FX.DS9FXmain.DeleteRandomAttackTimer(None, None)
+        DisableLocalForces.DisableForces(missionName)
     elif eventType == "End":
-        Custom.DS9FX.DS9FXmain.HandleRandomAttackTimer()
-        DisableLocalForces.EnableForces()
+        if DS9FXSavedConfig.KillRandomFleetsDuringMission == 1:
+            Custom.DS9FX.DS9FXmain.HandleRandomAttackTimer()
+        DisableLocalForces.EnableForces(missionName)
     else:
         return
 
 
 # ET_END_DS9FX_MISSION related
 def EndDS9FXMissionHandling(pObject, pEvent):
-    HandleDS9FXMission(eventType="End")
+    HandleDS9FXMission(eventType="End", pEvent=pEvent)
     HandleMissions.ResetMission()
     MissionStatus.Reset()
     DS9FXMirrorUniverse.InMission(0)
