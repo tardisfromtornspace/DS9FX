@@ -3,6 +3,7 @@
 import App
 import MissionLib
 from Custom.DS9FX import DS9FXmain
+from Custom.DS9FX.DS9FXMissions import MissionIDs
 from Custom.UnifiedMainMenu.ConfigModules.Options.SavedConfigs import DS9FXSavedConfig
 
 ships = ["Attacker 1", "Attacker 2", "Attacker 3", "Attacker 4", "Attacker 5",
@@ -15,11 +16,23 @@ ships = ["Attacker 1", "Attacker 2", "Attacker 3", "Attacker 4", "Attacker 5",
          "Bugship 3", "Bugship 4", "Dreadnought", "USS Majestic", "USS Bonchune", "Bugship 1", "Bugship 2", "Bugship 3",
          "IKS K'mpec", "IKS Amar", "IKS Ki'Tang", "Hutet 1", "Keldon 1", "Keldon 2", "Galor 1", "Galor 2"]
 
+mission_id = ""
 
-def DisableForces():
+excludedShips = {MissionIDs.MM5: ["Dreadnought"]}
+
+
+def ShouldEnforceLocalForces():
+    global mission_id
+    return mission_id != ""
+
+
+def DisableForces(missionId):
     reload(DS9FXSavedConfig)
     if DS9FXSavedConfig.DisableLocalForces == 0:
         return
+
+    global mission_id
+    mission_id = missionId
 
     pSequence = App.TGSequence_Create()
     pAction = App.TGScriptAction_Create(__name__, "DisableDelay")
@@ -37,23 +50,32 @@ def DisableDelay(pAction):
     if not set:
         return 0
 
-    name = set.GetName()
-    if not name:
+    set_name = set.GetName()
+    if not set_name:
         return 0
 
-    for s in ships:
-        try:
-            set.DeleteObjectFromSet(s)
-        except:
-            pass
+    toIgnore = []
+    if excludedShips.has_key(set_name):
+        toIgnore = excludedShips[set_name]
+
+    for ship in ships:
+        if not ship in toIgnore:
+            try:
+                set.DeleteObjectFromSet(ship)
+            except:
+                pass
 
     return 1
 
 
-def EnableForces():
+def EnableForces(missionId):
     reload(DS9FXSavedConfig)
     if DS9FXSavedConfig.DisableLocalForces == 0:
         return
+
+    global mission_id
+    # No need to handle mission end, reset global string
+    mission_id = ""
 
     pSequence = App.TGSequence_Create()
     pAction = App.TGScriptAction_Create(__name__, "EnableDelay")
@@ -71,8 +93,8 @@ def EnableDelay(pAction):
     if not set:
         return 0
 
-    name = set.GetName()
-    if not name:
+    set_name = set.GetName()
+    if not set_name:
         return 0
 
     DS9FXmain.CreateDS9FXShips()
