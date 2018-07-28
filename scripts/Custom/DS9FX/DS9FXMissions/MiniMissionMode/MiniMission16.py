@@ -19,23 +19,29 @@ sBriefing = "Captain, this is a risky mission. As you may know we only recently 
 sModule = "Custom.DS9FX.DS9FXMissions.MiniMissionMode.MiniMission16"
 lBases = []
 
+
 def Briefing():
     DS9FXMissionLib.Briefing(sName, sObjectives, sBriefing, pName, sModule)
-    
+
+
 def MissionInitiate():
     global lBases
-    lBases =["Base 1", "Base 2", "Base 3"]
+    lBases = ["Base 1", "Base 2", "Base 3"]
 
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
 
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                           App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".ObjectExploding")
-    App.g_kEventManager.AddBroadcastPythonFuncHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission, __name__ + ".ObjectExploding")
-    App.g_kEventManager.AddBroadcastPythonFuncHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission, __name__ + ".ObjectExploding")    
+    App.g_kEventManager.AddBroadcastPythonFuncHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission,
+                                                      __name__ + ".ObjectExploding")
+    App.g_kEventManager.AddBroadcastPythonFuncHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission,
+                                                      __name__ + ".ObjectExploding")
+
 
 def DisableDS9FXMenuButtons(pObject, pEvent):
     try:
@@ -43,7 +49,8 @@ def DisableDS9FXMenuButtons(pObject, pEvent):
         bHail.SetDisabled()
     except:
         raise RuntimeError, "DS9FX: Runtime mission error... please consult BCS:TNG..."
-    
+
+
 def PlayerExploding(pObject, pEvent):
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
@@ -52,9 +59,9 @@ def PlayerExploding(pObject, pEvent):
 
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if (pShip.GetObjID() == pPlayer.GetObjID()):
         FailedTxt()
@@ -62,8 +69,10 @@ def PlayerExploding(pObject, pEvent):
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".ObjectExploding")
-            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission, __name__ + ".ObjectExploding")
-            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission, __name__ + ".ObjectExploding")            
+            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission,
+                                                       __name__ + ".ObjectExploding")
+            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission,
+                                                       __name__ + ".ObjectExploding")
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
         except:
             pass
@@ -73,7 +82,8 @@ def PlayerExploding(pObject, pEvent):
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
- 
+
+
 def FailedTxt():
     sText = "Mission Failed!"
     iPos = 6
@@ -81,7 +91,8 @@ def FailedTxt():
     iDur = 6
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def MissionHandler(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
@@ -91,9 +102,9 @@ def MissionHandler(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
@@ -106,10 +117,12 @@ def MissionHandler(pObject, pEvent):
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
         DS9FXGlobalEvents.Trigger_Force_Mission_Playing(MissionLib.GetPlayer())
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                               App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
+
 
 def ObjectiveTxt():
     sText = "There are the bases, lets take them down sir."
@@ -118,7 +131,8 @@ def ObjectiveTxt():
     iDur = 12
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def CreateShips():
     global lBases
     pPlayer = MissionLib.GetPlayer()
@@ -127,7 +141,7 @@ def CreateShips():
     pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
     import Custom.DS9FX.DS9FXAILib.DS9FXGenericEnemyAI
 
-    for i in range(1,10):
+    for i in range(1, 10):
         sShip = "Dominion Patrol" + str(i)
         pShip = loadspacehelper.CreateShip(DS9FXShips.Bugship, pSet, sShip, "Dummy Location")
         DS9FXLifeSupportLib.ClearFromGroup(sShip)
@@ -146,7 +160,7 @@ def CreateShips():
         pZ = pZ + adZ
         pShip.SetTranslateXYZ(pX, pY, pZ)
         pShip.UpdateNodeOnly()
-    
+
     for s in lBases:
         sShip = s
         pShip = loadspacehelper.CreateShip(DS9FXShips.Asteroid, pSet, sShip, "Dummy Location")
@@ -168,10 +182,12 @@ def CreateShips():
         pShip.GetHull().GetProperty().SetMaxCondition(25000)
         pShip.GetHull().SetCondition(25000)
         pShip.SetScale(25)
- 
+
+
 def GetRandomNumber(iNum, iStat):
     return App.g_kSystemWrapper.GetRandomNumber(iNum) + iStat
-    
+
+
 def ObjectExploding(pObject, pEvent):
     global lBases
 
@@ -181,9 +197,9 @@ def ObjectExploding(pObject, pEvent):
 
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if pShip.GetName() in lBases:
         lBases.remove(pShip.GetName())
@@ -191,9 +207,12 @@ def ObjectExploding(pObject, pEvent):
             GoHomeTxt()
             try:
                 App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
-                App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".ObjectExploding")
-                App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission, __name__ + ".ObjectExploding")
-                App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission, __name__ + ".ObjectExploding")                
+                App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission,
+                                                           __name__ + ".ObjectExploding")
+                App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission,
+                                                           __name__ + ".ObjectExploding")
+                App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission,
+                                                           __name__ + ".ObjectExploding")
             except:
                 pass
 
@@ -204,6 +223,7 @@ def ObjectExploding(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def GoHomeTxt():
     sText = "All Bases have been destroyed sir, now lets get out of here."
     iPos = 6
@@ -211,7 +231,8 @@ def GoHomeTxt():
     iDur = 12
     iDelay = 3
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def MissionEnd(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
@@ -221,9 +242,9 @@ def MissionEnd(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
@@ -236,8 +257,10 @@ def MissionEnd(pObject, pEvent):
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".ObjectExploding")
-            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission, __name__ + ".ObjectExploding")
-            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission, __name__ + ".ObjectExploding")
+            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_TAKEN_OVER, pMission,
+                                                       __name__ + ".ObjectExploding")
+            App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_DEAD_IN_SPACE, pMission,
+                                                       __name__ + ".ObjectExploding")
             App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
         except:
             pass
@@ -247,6 +270,7 @@ def MissionEnd(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def CompletedTxt():
     sText = "Mission Completed!"
     iPos = 6
@@ -254,7 +278,8 @@ def CompletedTxt():
     iDur = 6
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def CrewLost():
     try:
         pGame = App.Game_GetCurrentGame()
@@ -265,7 +290,36 @@ def CrewLost():
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".ObjectExploding")
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
+        RemoveMissionShips()
         DS9FXGlobalEvents.Trigger_Stop_Forcing_Mission_Playing(MissionLib.GetPlayer())
         DS9FXGlobalEvents.Trigger_DS9FX_Mission_End(MissionLib.GetPlayer(), pName)
     except:
         pass
+
+
+def RemoveMissionShips():
+    ships = ["Base 1", "Base 2", "Base 3"]
+
+    for i in range(1, 10):
+        name = "Dominion Patrol" + str(i)
+        ships.append(name)
+
+    player = MissionLib.GetPlayer()
+    if not player:
+        return 0
+
+    set = player.GetContainingSet()
+    if not set:
+        return 0
+
+    set_name = set.GetName()
+    if not set_name:
+        return 0
+
+    for ship in ships:
+        try:
+            set.DeleteObjectFromSet(ship)
+        except:
+            pass
+
+    return 1

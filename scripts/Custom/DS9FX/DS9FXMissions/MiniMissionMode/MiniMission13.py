@@ -19,17 +19,21 @@ sModule = "Custom.DS9FX.DS9FXMissions.MiniMissionMode.MiniMission13"
 
 iReinf = 1
 
+
 def Briefing():
     DS9FXMissionLib.Briefing(sName, sObjectives, sBriefing, pName, sModule)
+
 
 def MissionInitiate():
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
 
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                           App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
+
 
 def DisableDS9FXMenuButtons(pObject, pEvent):
     try:
@@ -38,18 +42,19 @@ def DisableDS9FXMenuButtons(pObject, pEvent):
     except:
         raise RuntimeError, "DS9FX: Runtime mission error... please consult BCS:TNG..."
 
+
 def PlayerExploding(pObject, pEvent):
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
     pPlayer = MissionLib.GetPlayer()
-      
+
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
-        
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
+
     if (pShip.GetObjID() == pPlayer.GetObjID()):
         FailedTxt()
         try:
@@ -65,6 +70,7 @@ def PlayerExploding(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def FailedTxt():
     sText = "Mission Failed!"
     iPos = 6
@@ -72,6 +78,7 @@ def FailedTxt():
     iDur = 6
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def MissionHandler(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
@@ -82,29 +89,34 @@ def MissionHandler(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "DS9FXFoundersHomeworld1":
         ObjectiveTxt()
         CreateShips()
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
-        RandTime = GetRandomNumber(300, 300) # 5 to 10 min
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".CreateReinforcments", App.g_kUtopiaModule.GetGameTime() + (RandTime * 0.3), 0, 0)
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".CreateReinforcments", App.g_kUtopiaModule.GetGameTime() + (RandTime * 0.6), 0, 0)
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".ScanningDone", App.g_kUtopiaModule.GetGameTime() + RandTime, 0, 0)
+        RandTime = GetRandomNumber(300, 300)  # 5 to 10 min
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".CreateReinforcments",
+                               App.g_kUtopiaModule.GetGameTime() + (RandTime * 0.3), 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".CreateReinforcments",
+                               App.g_kUtopiaModule.GetGameTime() + (RandTime * 0.6), 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".ScanningDone",
+                               App.g_kUtopiaModule.GetGameTime() + RandTime, 0, 0)
         DS9FXGlobalEvents.Trigger_Force_Mission_Playing(MissionLib.GetPlayer())
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                               App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
+
 
 def ObjectiveTxt():
     sText = "Scanning Area... Stay in range until the scan is complete!"
@@ -114,18 +126,19 @@ def ObjectiveTxt():
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def CreateShips():
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
     pLocation = pPlayer.GetWorldLocation()
     pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
-    
+
     for i in range(1, 4):
         sShip = "Dominion Patrol" + str(i)
         pShip = loadspacehelper.CreateShip(DS9FXShips.Bugship, pSet, sShip, "Dummy Location")
         DS9FXLifeSupportLib.ClearFromGroup(sShip)
         pMission.GetEnemyGroup().AddName(sShip)
-        pShip = MissionLib.GetShip(sShip, pSet) 
+        pShip = MissionLib.GetShip(sShip, pSet)
         pShip = App.ShipClass_Cast(pShip)
         pShip.SetAI(Custom.DS9FX.DS9FXAILib.DS9FXGenericEnemyAI.CreateAI(pShip))
         pX = pLocation.GetX()
@@ -139,20 +152,21 @@ def CreateShips():
         pZ = pZ + adZ
         pShip.SetTranslateXYZ(pX, pY, pZ)
         pShip.UpdateNodeOnly()
+
 
 def CreateReinforcments(pObject, pEvent):
     global iReinf
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
     pLocation = pPlayer.GetWorldLocation()
-    pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()    
-    
+    pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
+
     for i in range(iReinf, (iReinf + 3)):
         sShip = "Dominion Reinforcments" + str(i)
         pShip = loadspacehelper.CreateShip(DS9FXShips.Bugship, pSet, sShip, "Dummy Location")
         DS9FXLifeSupportLib.ClearFromGroup(sShip)
         pMission.GetEnemyGroup().AddName(sShip)
-        pShip = MissionLib.GetShip(sShip, pSet) 
+        pShip = MissionLib.GetShip(sShip, pSet)
         pShip = App.ShipClass_Cast(pShip)
         pShip.SetAI(Custom.DS9FX.DS9FXAILib.DS9FXGenericEnemyAI.CreateAI(pShip))
         pX = pLocation.GetX()
@@ -166,31 +180,34 @@ def CreateReinforcments(pObject, pEvent):
         pZ = pZ + adZ
         pShip.SetTranslateXYZ(pX, pY, pZ)
         pShip.UpdateNodeOnly()
-        
+
     iReinf = iReinf + 3
+
 
 def GetRandomNumber(iNum, iStat):
     return App.g_kSystemWrapper.GetRandomNumber(iNum) + iStat
+
 
 def ScanningDone(pObject, pEvent):
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
-    
+
     GoHomeTxt()
-    
+
     try:
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
     except:
         pass
-    
+
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
-        
+
     DS9FXGlobalEvents.Trigger_Stop_Forcing_Mission_Playing(MissionLib.GetPlayer())
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
+
 
 def GoHomeTxt():
     sText = "Scan complete\n\nNothing abnormal was detected.\nWe should return to DS9 so Starfleet can review the data."
@@ -199,6 +216,7 @@ def GoHomeTxt():
     iDur = 12
     iDelay = 3
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def MissionEnd(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
@@ -209,15 +227,15 @@ def MissionEnd(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "DeepSpace91":
         CompletedTxt()
         try:
@@ -232,6 +250,7 @@ def MissionEnd(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def CompletedTxt():
     sText = "Mission Completed!"
     iPos = 6
@@ -239,7 +258,8 @@ def CompletedTxt():
     iDur = 6
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def CrewLost():
     try:
         pGame = App.Game_GetCurrentGame()
@@ -253,3 +273,36 @@ def CrewLost():
         DS9FXGlobalEvents.Trigger_DS9FX_Mission_End(MissionLib.GetPlayer(), pName)
     except:
         pass
+
+
+def RemoveMissionShips():
+    ships = []
+
+    for i in range(1, 4):
+        name = "Dominion Patrol" + str(i)
+        ships.append(name)
+
+    global iReinf
+    for i in range(1, iReinf):
+        name = "Dominion Reinforcments" + str(i)
+        ships.append(name)
+
+    player = MissionLib.GetPlayer()
+    if not player:
+        return 0
+
+    set = player.GetContainingSet()
+    if not set:
+        return 0
+
+    set_name = set.GetName()
+    if not set_name:
+        return 0
+
+    for ship in ships:
+        try:
+            set.DeleteObjectFromSet(ship)
+        except:
+            pass
+
+    return 1
