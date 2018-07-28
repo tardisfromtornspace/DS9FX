@@ -20,7 +20,7 @@ sName = "Trepidation"
 sObjectives = "-Go to Qo'nos system\n-Negotiate an alliance with Klingons\n-Return to DS9"
 sBriefing = ""
 sModule = "Custom.DS9FX.DS9FXMissions.CampaignMode.OldRivals.Mission8"
-sProgress  = "scripts\\Custom\\DS9FX\\DS9FXMissions\\CampaignMode\\OldRivals\\Save\\MissionState.py"
+sProgress = "scripts\\Custom\\DS9FX\\DS9FXMissions\\CampaignMode\\OldRivals\\Save\\MissionState.py"
 pShipType = None
 iAction = 0
 iStep = 0
@@ -28,19 +28,22 @@ iStep = 0
 ET_EV1 = App.UtopiaModule_GetNextEventType()
 ET_EV2 = App.UtopiaModule_GetNextEventType()
 
+
 def Briefing():
     global pPlayerName, sBriefing
     reload(DS9FXSavedConfig)
     if not DS9FXSavedConfig.QonosPlanets == 1:
         PlanetsTxt()
-        return     
+        return
     if DS9FXSavedConfig.KlingonSide != 1:
         KlingonsText()
-        return      
+        return
     pPlayerName = App.g_kUtopiaModule.GetCaptainName().GetCString()
-    sBriefing = "Stardate 64818.29\n\nCaptain " + str(pPlayerName) + " we now know that Borg is behind these attacks. Starfleet is on the highest alert. Aside from us, the Romulans are the only ones with enough military strength to currently defend Alpha quadrant, unfortunately they are in a state of civil war. Which leaves us in a vulnerable state.\n\nWe are mobilizing all our ships and fleets as we are not sure if this is a prelude to an invasion or this is an isolated incident. We've never been fully sure if the the Borg actually ever fully recovered from the losses Admiral Janeway inflicted to the Collective.\n\nCaptain, you've been given a mission of vital importance, Klingons are still rebuilding their Military but we need their help. Your orders are simple: go to Klingon Homeworld and negotiate Military support from the Klingons.\n\nThis won't be a simple task Captain, as Klingons have suffered much in the Dominion war and in recent years our relations have strained due to Nemesis incident and our later negotiations of a more permanent alliance with the Romulans. Give it your best Captain.\n\nUsually this mission would fall to someone with a diplomatic background but you know that Klingons respect warriors and lately you've made a name for yourself, we're certain that Klingons would be more open to you."
+    sBriefing = "Stardate 64818.29\n\nCaptain " + str(
+        pPlayerName) + " we now know that Borg is behind these attacks. Starfleet is on the highest alert. Aside from us, the Romulans are the only ones with enough military strength to currently defend Alpha quadrant, unfortunately they are in a state of civil war. Which leaves us in a vulnerable state.\n\nWe are mobilizing all our ships and fleets as we are not sure if this is a prelude to an invasion or this is an isolated incident. We've never been fully sure if the the Borg actually ever fully recovered from the losses Admiral Janeway inflicted to the Collective.\n\nCaptain, you've been given a mission of vital importance, Klingons are still rebuilding their Military but we need their help. Your orders are simple: go to Klingon Homeworld and negotiate Military support from the Klingons.\n\nThis won't be a simple task Captain, as Klingons have suffered much in the Dominion war and in recent years our relations have strained due to Nemesis incident and our later negotiations of a more permanent alliance with the Romulans. Give it your best Captain.\n\nUsually this mission would fall to someone with a diplomatic background but you know that Klingons respect warriors and lately you've made a name for yourself, we're certain that Klingons would be more open to you."
     DS9FXMissionLib.Briefing(sName, sObjectives, sBriefing, pName, sModule)
-    
+
+
 def PlanetsTxt():
     sText = "Planets in Qo'nos system are not turned on..."
     iPos = 3
@@ -48,7 +51,8 @@ def PlanetsTxt():
     iDur = 6
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def KlingonsText():
     sText = "Klingons are currently set as enemy..."
     iPos = 3
@@ -56,29 +60,32 @@ def KlingonsText():
     iDur = 6
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def MissionInitiate():
     global pShipType, iAction, iStep
-    
+
     iAction = 0
     iStep = 0
-    
+
     SetupPlayer()
-    
+
     pPlayer = MissionLib.GetPlayer()
     pShipType = DS9FXLifeSupportLib.GetShipType(pPlayer)
 
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
-    
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                           App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
-    
+
     pCondition = App.ConditionScript_Create("Conditions.ConditionPlayerOrbitting", "ConditionPlayerOrbitting", "Qo'nos")
     MissionLib.CallFunctionWhenConditionChanges(pMission, __name__, "InOrbit", pCondition)
-    
+
+
 def SetupPlayer():
     from Custom.DS9FX.DS9FXMissions.CampaignMode.OldRivals.Save import MissionState
     reload(MissionState)
@@ -94,26 +101,28 @@ def SetupPlayer():
     GetPlayer = MissionLib.GetShip(pPlayerName, pSet)
     pGame = App.Game_GetCurrentGame()
     pGame.SetPlayer(GetPlayer)
-    
+
+
 def DisableDS9FXMenuButtons(pObject, pEvent):
     try:
         bHail = DS9FXMenuLib.GetSubMenuButton("Hail DS9", "Helm", "DS9FX", "DS9 Options...")
         bHail.SetDisabled()
     except:
         raise RuntimeError, "DS9FX: Runtime mission error... please consult BCS:TNG..."
-    
+
+
 def PlayerExploding(pObject, pEvent):
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
     pPlayer = MissionLib.GetPlayer()
-      
+
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
-        
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
+
     if (pShip.GetObjID() == pPlayer.GetObjID()):
         FailedTxt()
         try:
@@ -129,6 +138,7 @@ def PlayerExploding(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def FailedTxt():
     sText = "Mission Failed!"
     iPos = 6
@@ -136,7 +146,8 @@ def FailedTxt():
     iDur = 6
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def MissionHandler(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
@@ -146,22 +157,24 @@ def MissionHandler(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "DS9FXQonos1":
-        ObjectiveTxt() 
+        ObjectiveTxt()
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                               App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
+
 
 def ObjectiveTxt():
     sText = "We should enter Qo'nos's orbit sir to begin negotiating..."
@@ -171,11 +184,14 @@ def ObjectiveTxt():
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def InOrbit(bInOrbit):
     MissionLib.StopCallingFunctionWhenConditionChanges(__name__, "InOrbit")
     Notify()
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DelayNegotiations", App.g_kUtopiaModule.GetGameTime() + 60, 0, 0)
-    
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DelayNegotiations",
+                           App.g_kUtopiaModule.GetGameTime() + 60, 0, 0)
+
+
 def Notify():
     sText = "Stanby... You Federation types think you can gain\nour trust by sending a warrior to do the bidding... pathetic!"
     iPos = 6
@@ -183,7 +199,8 @@ def Notify():
     iDur = 12
     iDelay = 10
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def DelayNegotiations(pObject, pEvent):
     sTitle = "Transported to surface"
     sText = "You've transported yourself to the Qo'nos surface. As soon as you transport you are challenged by a Klingon warrior. Do you accept his challenge to the death?"
@@ -191,78 +208,87 @@ def DelayNegotiations(pObject, pEvent):
     sAction2 = "Decline challenge"
     iCorrect = 1
     SetupModalDialog(sTitle, sText, sAction1, sAction2, iCorrect)
-    
+
+
 def SetupModalDialog(sTitle, sText, sAction1, sAction2, iCorrect):
     global iAction
-    
+
     iAction = iCorrect
-    
+
     pTopWindow = App.TopWindow_GetTopWindow()
     pOptionsWindow = pTopWindow.FindMainWindow(App.MWT_OPTIONS)
 
     pOptionsWindow.AddPythonFuncHandlerForInstance(ET_EV1, __name__ + ".Action1")
     pOptionsWindow.AddPythonFuncHandlerForInstance(ET_EV2, __name__ + ".Action2")
-    
+
     import MainMenu.mainmenu
-    App.g_kFontManager.SetDefaultFont(MainMenu.mainmenu.g_pcFlightSmallFont, MainMenu.mainmenu.g_kFlightSmallFontSize[MainMenu.mainmenu.g_iRes])
-    
+    App.g_kFontManager.SetDefaultFont(MainMenu.mainmenu.g_pcFlightSmallFont,
+                                      MainMenu.mainmenu.g_kFlightSmallFontSize[MainMenu.mainmenu.g_iRes])
+
     pModalDialogWindow = App.ModalDialogWindow_Cast(pTopWindow.FindMainWindow(App.MWT_MODAL_DIALOG))
-    
+
     pEvent1 = App.TGStringEvent_Create()
     pEvent1.SetEventType(ET_EV1)
     pEvent1.SetString("DS9FXEV1")
     pEvent1.SetDestination(pOptionsWindow)
-    
+
     pEvent2 = App.TGStringEvent_Create()
     pEvent2.SetEventType(ET_EV2)
     pEvent2.SetString("DS9FXEV2")
     pEvent2.SetDestination(pOptionsWindow)
-    
+
     pTitle = App.TGString(sTitle)
     pText = App.TGString(sText)
     pOpt1 = App.TGString(sAction1)
     pOpt2 = App.TGString(sAction2)
-    
+
     if sAction2 == "":
         pModalDialogWindow.Run(pTitle, pText, pOpt1, pEvent1, None, None)
     else:
         pModalDialogWindow.Run(pTitle, pText, pOpt1, pEvent1, pOpt2, pEvent2)
-    
+
+
 def Action1(pObject, pEvent):
     global iAction
-    
+
     pTopWindow = App.TopWindow_GetTopWindow()
     pOptionsWindow = pTopWindow.FindMainWindow(App.MWT_OPTIONS)
 
     pOptionsWindow.RemoveHandlerForInstance(ET_EV1, __name__ + ".Action1")
     pOptionsWindow.RemoveHandlerForInstance(ET_EV2, __name__ + ".Action2")
-    
+
     i = 1
     if i == iAction:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Correct", App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Correct",
+                               App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Incorrect", App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Incorrect",
+                               App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
 
     if pObject and pEvent:
-            pObject.CallNextHandler(pEvent)        
+        pObject.CallNextHandler(pEvent)
+
 
 def Action2(pObject, pEvent):
     global iAction
-    
+
     pTopWindow = App.TopWindow_GetTopWindow()
     pOptionsWindow = pTopWindow.FindMainWindow(App.MWT_OPTIONS)
 
     pOptionsWindow.RemoveHandlerForInstance(ET_EV1, __name__ + ".Action1")
     pOptionsWindow.RemoveHandlerForInstance(ET_EV2, __name__ + ".Action2")
-    
+
     i = 2
     if i == iAction:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Correct", App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Correct",
+                               App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Incorrect", App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".Incorrect",
+                               App.g_kUtopiaModule.GetGameTime() + 3, 0, 0)
 
     if pObject and pEvent:
-            pObject.CallNextHandler(pEvent)
+        pObject.CallNextHandler(pEvent)
+
 
 def Correct(pObject, pEvent):
     global iStep
@@ -318,12 +344,14 @@ def Correct(pObject, pEvent):
         SetupModalDialog(sTitle, sText, sAction1, sAction2, iCorrect)
     elif iStep == 8:
         SetupEnding()
-    
+
+
 def Incorrect(pObject, pEvent):
     global iStep
     iStep = 0
     DelayNegotiations(None, None)
-    
+
+
 def SetupEnding():
     sText = "We should get back to DS9 sir."
     iPos = 6
@@ -331,14 +359,15 @@ def SetupEnding():
     iDur = 12
     iDelay = 15
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
-    pMission = pEpisode.GetCurrentMission()    
+    pMission = pEpisode.GetCurrentMission()
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
-    
+
     App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
-    
+
+
 def MissionEnd(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
@@ -348,15 +377,15 @@ def MissionEnd(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "DeepSpace91":
         CompletedTxt()
         SaveProgress()
@@ -373,6 +402,7 @@ def MissionEnd(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def CompletedTxt():
     sText = "Mission Completed!"
     iPos = 6
@@ -380,7 +410,8 @@ def CompletedTxt():
     iDur = 6
     iDelay = 15
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
-    
+
+
 def SaveProgress():
     global pShipType
     if not pShipType:
@@ -395,6 +426,7 @@ def SaveProgress():
     nt.write(file, "OnMission = " + str(i) + "\n")
     nt.write(file, "Ship = " + "'" + pShipType + "'")
     nt.close(file)
+
 
 def CrewLost():
     try:

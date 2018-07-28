@@ -22,6 +22,7 @@ sModule = "Custom.DS9FX.DS9FXMissions.MiniMissionMode.MiniMission17"
 pDerelictID = None
 ShipIDs = []
 
+
 def Briefing():
     # Interactively tell the user that he cannot play the mission and why
     reload(DS9FXSavedConfig)
@@ -29,6 +30,7 @@ def Briefing():
         LifeSupportTxt()
         return
     DS9FXMissionLib.Briefing(sName, sObjectives, sBriefing, pName, sModule)
+
 
 def LifeSupportTxt():
     sText = "Life Support is required to this mission..."
@@ -38,11 +40,14 @@ def LifeSupportTxt():
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def MissionInitiate():
-    pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()    
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+    pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                           App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".ObjectExploding")
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".Create_Derelict")
+
 
 def DisableDS9FXMenuButtons(pObject, pEvent):
     try:
@@ -51,20 +56,21 @@ def DisableDS9FXMenuButtons(pObject, pEvent):
     except:
         raise RuntimeError, "DS9FX: Runtime mission error... please consult BCS:TNG..."
 
+
 def ObjectExploding(pObject, pEvent):
     global pDerelictID, ShipIDs
 
     pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
     pPlayer = MissionLib.GetPlayer()
-      
+
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     pShipID = pShip.GetObjID()
-        
+
     if pShipID == pPlayer.GetObjID():
         pDerelictID = None
         FailedTxt()
@@ -87,9 +93,10 @@ def ObjectExploding(pObject, pEvent):
             GoHomeTxt2()
             DS9FXGlobalEvents.Trigger_Stop_Forcing_Mission_Playing(MissionLib.GetPlayer())
             App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
-        
+
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
+
 
 def FailedTxt():
     sText = "Mission Failed!"
@@ -99,6 +106,7 @@ def FailedTxt():
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def LostDerelict():
     sText = "The Derelict has been destroyed. Mission Failed!"
     iPos = 2
@@ -107,14 +115,15 @@ def LostDerelict():
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def Create_Derelict(pObject, pEvent):
     global pDerelictID
-    
+
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     pPlayer = MissionLib.GetPlayer()
     if not pPlayer.GetObjID() == pShip.GetObjID():
@@ -131,10 +140,11 @@ def Create_Derelict(pObject, pEvent):
         DS9FXGlobalEvents.Trigger_Force_Mission_Playing(MissionLib.GetPlayer())
         ObjectiveTxt()
         App.g_kEventManager.RemoveBroadcastHandler(App.ET_ENTERED_SET, pMission, __name__ + ".Create_Derelict")
-        App.g_kEventManager.AddBroadcastPythonFuncHandler(DS9FXGlobalEvents.ET_SHIP_REACTIVATED, pMission, __name__ + ".Derelict_Recovered")
+        App.g_kEventManager.AddBroadcastPythonFuncHandler(DS9FXGlobalEvents.ET_SHIP_REACTIVATED, pMission,
+                                                          __name__ + ".Derelict_Recovered")
 
         pShip = loadspacehelper.CreateShip(DS9FXShips.DomBC, pSet, "Derelict", "Dummy Location")
-        pShip = MissionLib.GetShip("Derelict", pSet) 
+        pShip = MissionLib.GetShip("Derelict", pSet)
         pShip = App.ShipClass_Cast(pShip)
         pShip.SetAI(DS9FXStayAI.CreateAI(pShip))
         pX = pLocation.GetX()
@@ -150,17 +160,20 @@ def Create_Derelict(pObject, pEvent):
         pShip.UpdateNodeOnly()
         AddVisibleDamage(pShip)
         pDerelictID = pShip.GetObjID()
-        
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".AdjustLifeSupport", App.g_kUtopiaModule.GetGameTime() + 2, 0, 0)
-        
-        
+
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".AdjustLifeSupport",
+                               App.g_kUtopiaModule.GetGameTime() + 2, 0, 0)
+
+
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                               App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
-def AddVisibleDamage(pThingToDamage): # Created by DamageTool (BC SDK)
+
+def AddVisibleDamage(pThingToDamage):  # Created by DamageTool (BC SDK)
     pThingToDamage.AddObjectDamageVolume(-0.994152, -2.993623, 0.662763, 0.400000, 300.000000)
     pThingToDamage.AddObjectDamageVolume(-0.395798, -0.065835, -0.045254, 1.000000, 600.000000)
     pThingToDamage.AddObjectDamageVolume(1.010385, 0.134555, -0.214279, 1.000000, 600.000000)
@@ -173,6 +186,7 @@ def AddVisibleDamage(pThingToDamage): # Created by DamageTool (BC SDK)
     pThingToDamage.AddObjectDamageVolume(0.647501, -2.309343, -0.196577, 0.400000, 300.000000)
     pThingToDamage.AddObjectDamageVolume(0.481983, 2.182763, -0.305179, 0.400000, 300.000000)
 
+
 def ObjectiveTxt():
     sText = "Captain, we need to recover the wreck!"
     iPos = 6
@@ -181,17 +195,21 @@ def ObjectiveTxt():
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
-def AdjustLifeSupport(pObject, pEvent): # Didn't work for when used in Create_Derelict() (guess: overwritten elsewhere?)
+
+def AdjustLifeSupport(pObject,
+                      pEvent):  # Didn't work for when used in Create_Derelict() (guess: overwritten elsewhere?)
     global pDerelictID
-    
+
     pDerelict = App.ShipClass_Cast(App.TGObject_GetTGObjectPtr(pDerelictID))
     LifeSupport_dict.dCrew[pDerelictID] = 0
     DS9FXGlobalEvents.Trigger_Combat_Effectiveness(pDerelict)
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".AddSystemDamage", App.g_kUtopiaModule.GetGameTime() + 2, 0, 0)
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".AddSystemDamage",
+                           App.g_kUtopiaModule.GetGameTime() + 2, 0, 0)
 
-def AddSystemDamage(pObject, pEvent):    
+
+def AddSystemDamage(pObject, pEvent):
     global pDerelictID
-    
+
     pDerelict = App.ShipClass_Cast(App.TGObject_GetTGObjectPtr(pDerelictID))
     Properties = pDerelict.GetPropertySet()
     if not Properties:
@@ -211,11 +229,12 @@ def AddSystemDamage(pObject, pEvent):
             MaxCond = pSystem.GetMaxCondition()
             DisCond = MaxCond * DisPerc
 
-            NewCond = MaxCond - GetRandomNumber(int(MaxCond - DisCond), 0)            
+            NewCond = MaxCond - GetRandomNumber(int(MaxCond - DisCond), 0)
             pSystem.SetCondition(NewCond)
 
     Subsystems.TGDoneIterating()
     Subsystems.TGDestroy()
+
 
 def Derelict_Recovered(pObject, pEvent):
     global pDerelictID
@@ -228,24 +247,27 @@ def Derelict_Recovered(pObject, pEvent):
 
     if pShip.GetObjID() == pDerelictID:
         pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
-        App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_REACTIVATED, pMission, __name__ + ".Derelict_Recovered")
-        
+        App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_REACTIVATED, pMission,
+                                                   __name__ + ".Derelict_Recovered")
+
         SetpAI()
         DS9FXGlobalEvents.Trigger_Stop_Forcing_Mission_Playing(MissionLib.GetPlayer())
         GoHomeTxt()
         App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".Create_Attackers")
-    
-def SetpAI(): # Nearly the same than AdjustLifeSupport() except for the AI...
+
+
+def SetpAI():  # Nearly the same than AdjustLifeSupport() except for the AI...
     global pDerelictID
-    
+
     if pDerelictID == None:
         return
-    
+
     pDerelict = App.ShipClass_Cast(App.TGObject_GetTGObjectPtr(pDerelictID))
     if not pDerelict:
         return
-    
+
     pDerelict.SetAI(DS9FXGenericFriendlyFollowAI.CreateAI(pDerelict))
+
 
 def GoHomeTxt():
     sText = "Ok, seems like we're done here.\n\nWe should return to DS9."
@@ -255,12 +277,13 @@ def GoHomeTxt():
     iDelay = 15
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def Create_Attackers(pObject, pEvent):
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     pPlayer = MissionLib.GetPlayer()
     if not pPlayer.GetObjID() == pShip.GetObjID():
@@ -270,7 +293,7 @@ def Create_Attackers(pObject, pEvent):
 
     pSet = pPlayer.GetContainingSet()
     pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
-    
+
     if pSet.GetName() == "GammaQuadrant1":
         DS9FXGlobalEvents.Trigger_Force_Mission_Playing(MissionLib.GetPlayer())
         ObjectiveTxt2()
@@ -278,14 +301,16 @@ def Create_Attackers(pObject, pEvent):
         CreateShips()
 
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                               App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def CreateShips():
     global ShipIDs
-    
+
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
     pLocation = pPlayer.GetWorldLocation()
@@ -295,7 +320,7 @@ def CreateShips():
     pShip = loadspacehelper.CreateShip(DS9FXShips.DomBC, pSet, sShip, "Dummy Location")
     DS9FXLifeSupportLib.ClearFromGroup(sShip)
     pMission.GetEnemyGroup().AddName(sShip)
-    pShip = MissionLib.GetShip(sShip, pSet) 
+    pShip = MissionLib.GetShip(sShip, pSet)
     pShip = App.ShipClass_Cast(pShip)
     pShip.SetAI(DS9FXGenericEnemyAI.CreateAI(pShip))
     pX = pLocation.GetX()
@@ -316,7 +341,7 @@ def CreateShips():
         pShip = loadspacehelper.CreateShip(DS9FXShips.Bugship, pSet, sShip, "Dummy Location")
         DS9FXLifeSupportLib.ClearFromGroup(sShip)
         pMission.GetEnemyGroup().AddName(sShip)
-        pShip = MissionLib.GetShip(sShip, pSet) 
+        pShip = MissionLib.GetShip(sShip, pSet)
         pShip = App.ShipClass_Cast(pShip)
         pShip.SetAI(DS9FXGenericEnemyAI.CreateAI(pShip))
         pX = pLocation.GetX()
@@ -332,8 +357,10 @@ def CreateShips():
         pShip.UpdateNodeOnly()
         ShipIDs.append(pShip.GetObjID())
 
+
 def GetRandomNumber(iNum, iStat):
     return App.g_kSystemWrapper.GetRandomNumber(iNum) + iStat
+
 
 def ObjectiveTxt2():
     sText = "Captain, we need to protect the Derelict!"
@@ -343,6 +370,7 @@ def ObjectiveTxt2():
     iDelay = 12
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def GoHomeTxt2():
     sText = "Now let's return to DS9 befor more enmies enter the area..."
     iPos = 6
@@ -351,21 +379,22 @@ def GoHomeTxt2():
     iDelay = 3
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
-def MissionEnd(pObject, pEvent):    
+
+def MissionEnd(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
     pSet = pPlayer.GetContainingSet()
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "DeepSpace91":
         CompletedTxt()
         RemoveHandlers()
@@ -375,6 +404,7 @@ def MissionEnd(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def CompletedTxt():
     sText = "Mission Completed!"
     iPos = 6
@@ -382,6 +412,7 @@ def CompletedTxt():
     iDur = 6
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def RemoveHandlers():
     pMission = App.Game_GetCurrentGame().GetCurrentEpisode().GetCurrentMission()
@@ -402,20 +433,48 @@ def RemoveHandlers():
     except:
         pass
     try:
-        App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_REACTIVATED, pMission, __name__ + ".Derelict_Recovered")
+        App.g_kEventManager.RemoveBroadcastHandler(DS9FXGlobalEvents.ET_SHIP_REACTIVATED, pMission,
+                                                   __name__ + ".Derelict_Recovered")
     except:
         pass
-    
+
+
 def CrewLost():
     global pDerelictID
     try:
         pDerelictID = None
-        pGame = App.Game_GetCurrentGame()
-        pEpisode = pGame.GetCurrentEpisode()
-        pMission = pEpisode.GetCurrentMission()
         FailedTxt()
         RemoveHandlers()
+        RemoveMissionShips()
         DS9FXGlobalEvents.Trigger_Stop_Forcing_Mission_Playing(MissionLib.GetPlayer())
         DS9FXGlobalEvents.Trigger_DS9FX_Mission_End(MissionLib.GetPlayer(), pName)
     except:
         pass
+
+
+def RemoveMissionShips():
+    ships = ["Derelict"]
+
+    for i in range(1, 10):
+        name = "Attacker" + str(i)
+        ships.append(name)
+
+    player = MissionLib.GetPlayer()
+    if not player:
+        return 0
+
+    set = player.GetContainingSet()
+    if not set:
+        return 0
+
+    set_name = set.GetName()
+    if not set_name:
+        return 0
+
+    for ship in ships:
+        try:
+            set.DeleteObjectFromSet(ship)
+        except:
+            pass
+
+    return 1

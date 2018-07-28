@@ -19,19 +19,22 @@ sName = "Elucidate"
 sObjectives = "-Go to Idran system\n-Scan for warp trails\n-Discover what the Dominion are doing\n-Report to DS9"
 sBriefing = ""
 sModule = "Custom.DS9FX.DS9FXMissions.CampaignMode.OldRivals.Mission2"
-sProgress  = "scripts\\Custom\\DS9FX\\DS9FXMissions\\CampaignMode\\OldRivals\\Save\\MissionState.py"
+sProgress = "scripts\\Custom\\DS9FX\\DS9FXMissions\\CampaignMode\\OldRivals\\Save\\MissionState.py"
 pShipType = None
 bScannedIdran = 0
+
 
 def Briefing():
     global pPlayerName, sBriefing
     reload(DS9FXSavedConfig)
     if not DS9FXSavedConfig.GammaPlanets == 1 and not DS9FXSavedConfig.YaderaPlanets == 1 and not DS9FXSavedConfig.VandrosPlanets == 1 and not DS9FXSavedConfig.GaiaPlanets == 1:
         PlanetsTxt()
-        return 
+        return
     pPlayerName = App.g_kUtopiaModule.GetCaptainName().GetCString()
-    sBriefing = "Stardate 64706.07\n\nThe Dominion has been acting strangely lately and the most recent assault on the Tibet confirms this. Captain " + str(pPlayerName) + " the Tibet's sensor logs don't indicate anything which would help us in discovering why the Dominion are acting the way they do.\n\nAs you may be aware or not, a lone Dominion Bugship has escaped in your last engagement to an unknown system. Your mission is to discover where and uncover any data about the Dominion activities. We must uncover their plot, Starfleet Intelligence speculates that they are doing something which might restore thier former glory..."
+    sBriefing = "Stardate 64706.07\n\nThe Dominion has been acting strangely lately and the most recent assault on the Tibet confirms this. Captain " + str(
+        pPlayerName) + " the Tibet's sensor logs don't indicate anything which would help us in discovering why the Dominion are acting the way they do.\n\nAs you may be aware or not, a lone Dominion Bugship has escaped in your last engagement to an unknown system. Your mission is to discover where and uncover any data about the Dominion activities. We must uncover their plot, Starfleet Intelligence speculates that they are doing something which might restore thier former glory..."
     DS9FXMissionLib.Briefing(sName, sObjectives, sBriefing, pName, sModule)
+
 
 def PlanetsTxt():
     sText = "Planets in Idran, Gaia, Vandros and Yadera are not turned on..."
@@ -41,11 +44,12 @@ def PlanetsTxt():
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def MissionInitiate():
     global pShipType, bScannedIdran
-    
+
     SetupPlayer()
-    
+
     bScannedIdran = 0
     pPlayer = MissionLib.GetPlayer()
     pShipType = DS9FXLifeSupportLib.GetShipType(pPlayer)
@@ -54,18 +58,22 @@ def MissionInitiate():
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
 
-    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+    MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                           App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_OBJECT_EXPLODING, pMission, __name__ + ".PlayerExploding")
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionHandler")
 
     pCondition = App.ConditionScript_Create("Conditions.ConditionPlayerOrbitting", "ConditionPlayerOrbitting", "Idran")
     MissionLib.CallFunctionWhenConditionChanges(pMission, __name__, "InOrbitIdran", pCondition)
-    pCondition = App.ConditionScript_Create("Conditions.ConditionPlayerOrbitting", "ConditionPlayerOrbitting", "Vandros I")
+    pCondition = App.ConditionScript_Create("Conditions.ConditionPlayerOrbitting", "ConditionPlayerOrbitting",
+                                            "Vandros I")
     MissionLib.CallFunctionWhenConditionChanges(pMission, __name__, "InOrbitGoal", pCondition)
-    lInvalidPlanets = ["Gaia I", "Gaia II", "Gaia III", "Gaia IV", "Vandros II", "Vandros III", "Vandros IV", "Yadera 1", "Yadera 2", "Yadera 3", "Yadera Prime", "Yadera 5"]
+    lInvalidPlanets = ["Gaia I", "Gaia II", "Gaia III", "Gaia IV", "Vandros II", "Vandros III", "Vandros IV",
+                       "Yadera 1", "Yadera 2", "Yadera 3", "Yadera Prime", "Yadera 5"]
     for s in lInvalidPlanets:
         pCondition = App.ConditionScript_Create("Conditions.ConditionPlayerOrbitting", "ConditionPlayerOrbitting", s)
-        MissionLib.CallFunctionWhenConditionChanges(pMission, __name__, "InOrbitInvalid", pCondition)  
+        MissionLib.CallFunctionWhenConditionChanges(pMission, __name__, "InOrbitInvalid", pCondition)
+
 
 def SetupPlayer():
     from Custom.DS9FX.DS9FXMissions.CampaignMode.OldRivals.Save import MissionState
@@ -83,6 +91,7 @@ def SetupPlayer():
     pGame = App.Game_GetCurrentGame()
     pGame.SetPlayer(GetPlayer)
 
+
 def DisableDS9FXMenuButtons(pObject, pEvent):
     try:
         bHail = DS9FXMenuLib.GetSubMenuButton("Hail DS9", "Helm", "DS9FX", "DS9 Options...")
@@ -90,18 +99,19 @@ def DisableDS9FXMenuButtons(pObject, pEvent):
     except:
         raise RuntimeError, "DS9FX: Runtime mission error... please consult BCS:TNG..."
 
+
 def PlayerExploding(pObject, pEvent):
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
     pMission = pEpisode.GetCurrentMission()
     pPlayer = MissionLib.GetPlayer()
-      
+
     pShip = App.ShipClass_Cast(pEvent.GetDestination())
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
-        
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
+
     if (pShip.GetObjID() == pPlayer.GetObjID()):
         FailedTxt()
         try:
@@ -119,6 +129,7 @@ def PlayerExploding(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def FailedTxt():
     sText = "Mission Failed!"
     iPos = 6
@@ -126,6 +137,7 @@ def FailedTxt():
     iDur = 6
     iDelay = 0
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def MissionHandler(pObject, pEvent):
     global bScannedIdran
@@ -137,15 +149,15 @@ def MissionHandler(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "GammaQuadrant1":
         if not bScannedIdran:
             ObjectiveGammaTxt()
@@ -157,12 +169,14 @@ def MissionHandler(pObject, pEvent):
             ObjectiveTxt()
     elif pSet.GetName() == "DS9FXYadera1":
         if bScannedIdran:
-            ObjectiveTxt()            
+            ObjectiveTxt()
     else:
-        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons", App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
+        MissionLib.CreateTimer(DS9FXMenuLib.GetNextEventType(), __name__ + ".DisableDS9FXMenuButtons",
+                               App.g_kUtopiaModule.GetGameTime() + 10, 0, 0)
 
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
+
 
 def ObjectiveGammaTxt():
     sText = "I am picking up many warp trails near the Gas Giant...\nPerhaps we should enter its orbit to get a better view..."
@@ -172,6 +186,7 @@ def ObjectiveGammaTxt():
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def ObjectiveTxt():
     sText = "We should enter orbit of each planet in order to scan it.\nThis will give us clues as to what the Dominion is doing..."
     iPos = 6
@@ -180,11 +195,13 @@ def ObjectiveTxt():
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def InOrbitIdran(bInOrbit):
     global bScannedIdran
     MissionLib.StopCallingFunctionWhenConditionChanges(__name__, "InOrbitIdran")
     bScannedIdran = 1
     IdranTxt()
+
 
 def IdranTxt():
     sText = "I have several possible locations which we could investigate sir:\nGAIA, VANDROS and YADERA... \nWhere to go first?"
@@ -193,6 +210,7 @@ def IdranTxt():
     iDur = 12
     iDelay = 30
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def InOrbitGoal(bInOrbit):
     global bScannedIdran
@@ -211,6 +229,7 @@ def InOrbitGoal(bInOrbit):
         pass
     App.g_kEventManager.AddBroadcastPythonFuncHandler(App.ET_ENTERED_SET, pMission, __name__ + ".MissionEnd")
 
+
 def GoalTxt():
     sText = "Sir, I think we have what we're looking for... We should get back to DS9 ASAP!!!"
     iPos = 6
@@ -219,11 +238,13 @@ def GoalTxt():
     iDelay = 30
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
 
+
 def InOrbitInvalid(bInOrbit):
     global bScannedIdran
     if not bScannedIdran:
         return
     InvalidTxt()
+
 
 def InvalidTxt():
     sText = "Nothing of interest here sir..."
@@ -232,6 +253,7 @@ def InvalidTxt():
     iDur = 12
     iDelay = 30
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def MissionEnd(pObject, pEvent):
     pPlayer = MissionLib.GetPlayer()
@@ -242,15 +264,15 @@ def MissionEnd(pObject, pEvent):
     pMission = pEpisode.GetCurrentMission()
 
     if (pShip == None):
-            if pObject and pEvent:
-                pObject.CallNextHandler(pEvent)
-            return
+        if pObject and pEvent:
+            pObject.CallNextHandler(pEvent)
+        return
 
     if not pPlayer.GetObjID() == pShip.GetObjID():
         if pObject and pEvent:
             pObject.CallNextHandler(pEvent)
         return
-    
+
     if pSet.GetName() == "DeepSpace91":
         CompletedTxt()
         SaveProgress()
@@ -269,6 +291,7 @@ def MissionEnd(pObject, pEvent):
     if pObject and pEvent:
         pObject.CallNextHandler(pEvent)
 
+
 def CompletedTxt():
     sText = "Mission Completed!"
     iPos = 6
@@ -276,6 +299,7 @@ def CompletedTxt():
     iDur = 6
     iDelay = 20
     DS9FXMissionLib.PrintText(sText, iPos, iFont, iDur, iDelay)
+
 
 def SaveProgress():
     global pShipType
@@ -291,6 +315,7 @@ def SaveProgress():
     nt.write(file, "OnMission = " + str(i) + "\n")
     nt.write(file, "Ship = " + "'" + pShipType + "'")
     nt.close(file)
+
 
 def CrewLost():
     try:

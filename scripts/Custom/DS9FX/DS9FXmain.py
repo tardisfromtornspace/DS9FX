@@ -99,6 +99,7 @@ bDockTOS375 = None
 bHail = None
 bMissionStats = None
 bCloseChannel = None
+bCancelMission = None
 bScan = None
 bScanPlayer = None
 bScanPlanet = None
@@ -163,7 +164,7 @@ def init():
     global ET_HISTORIC_MISSION_6, ET_MINI_MISSION_13, ET_MINI_MISSION_14, ET_MINI_MISSION_15, ET_MINI_MISSION_16, ET_MINI_MISSION_17
     global ET_MINI_MISSION_18, ET_MINI_MISSION_19, ET_MINI_MISSION_20, ET_MINI_MISSION_21, bMissionStats, ET_MINI_MISSION_22
     global ET_RANDOM_MISSION_1, ET_RANDOM_MISSION_2, ET_TRUE_WAY_1, ET_TRUE_WAY_2, ET_TRUE_WAY_3, ET_TRUE_WAY_4, ET_TRUE_WAY_5, ET_CAMPAIGN_3
-    global bDockTOS375, mS375SubMenu
+    global bDockTOS375, mS375SubMenu, bMissionStats
 
     pGame = App.Game_GetCurrentGame()
     pEpisode = pGame.GetCurrentEpisode()
@@ -314,16 +315,22 @@ def init():
                     bCloseChannel = DS9FXLib.DS9FXMenuLib.CreateBridgeMenuButton("Close Channel", "Helm",
                                                                                  __name__ + ".CloseChannelRedirect",
                                                                                  mDS9SubMenu)
-                    kCloseChannel = DS9FXLib.DS9FXMenuLib.ColorizeButton(bCloseChannel, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61,
-                                                                         1.0, 1.0, 0.25, 0.25, 0.25, 1.0)
+                    DS9FXLib.DS9FXMenuLib.ColorizeButton(bCloseChannel, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61,
+                                                         1.0, 1.0, 0.25, 0.25, 0.25, 1.0)
                     bHail = DS9FXLib.DS9FXMenuLib.CreateBridgeMenuButton("Hail DS9", "Helm", __name__ + ".HailDS9",
                                                                          mDS9SubMenu)
-                    kHail = DS9FXLib.DS9FXMenuLib.ColorizeButton(bHail, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61, 1.0, 1.0, 0.25,
-                                                                 0.25, 0.25, 1.0)
+                    DS9FXLib.DS9FXMenuLib.ColorizeButton(bHail, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61, 1.0, 1.0, 0.25,
+                                                         0.25, 0.25, 1.0)
                     bMissionStats = DS9FXLib.DS9FXMenuLib.CreateBridgeMenuButton("Mission Log", "Helm",
                                                                                  __name__ + ".MissionLog", mDS9SubMenu)
-                    kMissionStats = DS9FXLib.DS9FXMenuLib.ColorizeButton(bMissionStats, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61,
-                                                                         1.0, 1.0, 0.25, 0.25, 0.25, 1.0)
+                    DS9FXLib.DS9FXMenuLib.ColorizeButton(bMissionStats, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61,
+                                                         1.0, 1.0, 0.25, 0.25, 0.25, 1.0)
+
+                    bCancelMission = DS9FXLib.DS9FXMenuLib.CreateBridgeMenuButton("Cancel Mission", "Helm",
+                                                                                  __name__ + ".CancelMission",
+                                                                                  mDS9SubMenu)
+                    DS9FXLib.DS9FXMenuLib.ColorizeButton(bCancelMission, 0.5, 0.5, 1.0, 1.0, 0.61, 0.61,
+                                                         1.0, 1.0, 0.25, 0.25, 0.25, 1.0)
                 else:
                     print "DS9FX: DS9FX Missions have been disabled, turn off GC's RAF and RDF in order to play DS9FX Missions."
             else:
@@ -5422,3 +5429,9 @@ def WarpToFounders(pObject, pEvent):
 def MissionLog(pObject, pEvent):
     from Custom.DS9FX.DS9FXMissions import MissionStatus
     MissionStatus.ViewMissionStatus()
+
+
+def CancelMission(pObject, pEvent):
+    from Custom.DS9FX.DS9FXMissions import AbortMission
+    if AbortMission.Abort():
+        ActivateDS9FXButtons()
