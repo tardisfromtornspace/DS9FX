@@ -55,8 +55,8 @@ def DisableDelay(pAction):
         return 0
 
     toIgnore = []
-    if excludedShips.has_key(set_name):
-        toIgnore = excludedShips[set_name]
+    if excludedShips.has_key(mission_id):
+        toIgnore = excludedShips[mission_id]
 
     for ship in ships:
         if not ship in toIgnore:
