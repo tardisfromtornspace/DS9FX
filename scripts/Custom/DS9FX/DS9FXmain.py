@@ -2992,11 +2992,10 @@ def HandleResolutionForUI(window):
 
     x = 0.25
     y = 0.25
-    if mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_640x480 or \
-            mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_800x600 or \
-            mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_1024x768 or \
-            mode.GetCurrentResolution() == App.GraphicsModeInfo.RES_1280x1024:
+
+    if mode.GetWidth() <= 1280:
         x = 0.17
+    if mode.GetHeight() <= 1024:
         y = 0.15
 
     pTCW = App.TacticalControlWindow_GetTacticalControlWindow()
