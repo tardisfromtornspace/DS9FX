@@ -171,7 +171,8 @@ def init():
     pMission = pEpisode.GetCurrentMission()
     pMissionDatabase = pMission.SetDatabase("data/TGL/DS9FXMissionMenu.tgl")
 
-    pKiraSet = MissionLib.SetupBridgeSet("KiraSet", "data/Models/Sets/CardStation/Cardstation.nif", -40, 65, -1.55)
+    pKiraSet = MissionLib.SetupBridgeSet("KiraSet", "data/Models/Sets/StarbaseControl/starbasecontrolRM.nif", -40, 65,
+                                         -1.55)
     pKira = App.CharacterClass_GetObject(pKiraSet, "Kira")
     if not pKira:
         pKira = MissionLib.SetupCharacter("Bridge.Characters.DS9FXMajorKira", "KiraSet", 0, 0, 5)
