@@ -125,18 +125,7 @@ def CleanDelay(pAction):
 def ShipCreatedHandling(pObject, pEvent):
         BorgShips.BorgShipCheck(pObject, pEvent)
         HandleLifeSupportNewShip(pObject, pEvent)
-        HandleNoDamageThroughShields("ShipCreated", pObject, pEvent)
-
-def HandleNoDamageThroughShields(param, pObject, pEvent):
-        reload (DS9FXSavedConfig)
-        if not DS9FXSavedConfig.NoDamageThroughShields == 1:
-                return 
-
-        if param == "ShipCreated":
-                HandleShields.ShipCreated(pObject, pEvent)
-        elif param == "WeaponHit":
-                HandleShields.WeaponHit(pObject, pEvent)
-               
+        HandleNoDamageThroughShields("ShipCreated", pObject, pEvent)      
         
 def HandleNoDamageThroughShields(param, pObject, pEvent):
         reload (DS9FXSavedConfig)
