@@ -136,6 +136,28 @@ def HandleNoDamageThroughShields(param, pObject, pEvent):
                 HandleShields.ShipCreated(pObject, pEvent)
         elif param == "WeaponHit":
                 HandleShields.WeaponHit(pObject, pEvent)
+               
+        
+def HandleNoDamageThroughShields(param, pObject, pEvent):
+        reload (DS9FXSavedConfig)
+        if not DS9FXSavedConfig.NoDamageThroughShields == 1:
+                return         
+    
+        if param == "ShipCreated":
+                HandleShields.ShipCreated(pObject, pEvent)
+        elif param == "WeaponHit":
+                isthisPhased = 0 # Alex SL Gato: Taking into account phased weaponry
+                pWeaponType = pEvent.GetWeaponType()
+                if pWeaponType == pEvent.TORPEDO: # Fixing how this mod conflicts with PhasedTorp and any kind of similar stock and modded technologies
+                        try:
+                                pTorp=App.Torpedo_Cast(pEvent.GetSource())
+                                # pTorp.GetNetType() == Multiplayer.SpeciesToTorp.PHASEDPLASMA
+                                if pTorp.GetNetType() == 12:
+                                        isthisPhased = 1
+                        except:
+                                isthisPhased = 0
+                if isthisPhased == 0:
+                        HandleShields.WeaponHit(pObject, pEvent)
 
 def HandleLifeSupportNewShip(pObject, pEvent):
         reload (DS9FXSavedConfig)
